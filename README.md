@@ -5,7 +5,7 @@
 * angular1.x+Ionic+登录+页面路由
 ### 3、node
 * nodejs + mysql + express 链接前后端和操作数据库等
-### 3、wxapp
+### 3、wxapp 微信小程序
 * 桔子精选婚庆的微信小程序版本
 
 -------
