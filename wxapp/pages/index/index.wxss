@@ -1,0 +1,279 @@
+/**index.wxss**/
+.flex-wrp{
+  display:flex;
+  background-color: #FFFFFF;
+}
+.flex-item{
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-item {
+  display: block;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+/*part1*/
+
+#part1 {
+  }
+
+#part1 navigator {
+  width:25%;
+  float: left;
+  text-align: center;
+  background-position: center 10pt;
+  background-repeat: no-repeat;
+  background-size: 45px auto;
+  padding-top: 20pt;
+}
+
+#part1 navigator span {
+  color: #333;
+  font-size: 30rpx;
+  line-height: 25pt;
+  padding-top: 25pt;
+}
+
+#part1 .li_1 {
+  background-image: url(http://r3.3keji.com/11_a6.png);
+}
+
+#part1 .li_2 {
+  background-image: url(http://r3.3keji.com/08_a2.png);
+}
+
+#part1 .li_3 {
+  background-image: url(http://r3.3keji.com/11_a7.png);
+}
+
+#part1 .li_4 {
+  background-image: url(http://r3.3keji.com/08_a4.png);
+}
+
+#part1 .li_5 {
+  background-image: url(http://r3.3keji.com/08_a5.png);
+}
+
+#part1 .li_6 {
+  background-image: url(http://r3.3keji.com/11_a2.png);
+}
+
+#part1 .li_7 {
+  background-image: url(http://r3.3keji.com/11_a3.png);
+}
+
+#part1 .li_8 {
+  background-image: url(http://r3.3keji.com/11_a5.png);
+}
+
+#part1 .li_9 {
+  background-image: url(http://r3.3keji.com/11_a1.png);
+}
+
+#part1 .li_10 {
+  background-image: url(http://r3.3keji.com/08_a10.png);
+}
+
+#part1 .li_11 {
+  background-image: url(http://r3.3keji.com/11_a8.png);
+}
+
+#part1 .li_12 {
+  background-image: url(http://r3.3keji.com/11_a4.png);
+}
+
+#adImg {
+  border-top: 1px solid #f0f0f0;
+  width: 100%;
+  height: 90px;
+}
+
+/*tips*/
+
+#tips {
+  border-top: 1px solid #f0f0f0;
+}
+
+#tips navigator {
+  width: 33.2%;
+  height: 100px;
+  float: left;
+  text-align: center;
+  border-right: 1px solid #f0f0f0;
+  background-position: center 33pt;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+#tips .li_1 {
+  background-image: url(http://r3.3keji.com/08_b1.png);
+  background-size: 62px auto;
+}
+
+#tips .li_2 {
+  background-image: url(http://r3.3keji.com/08_b2.png);
+  background-size: 50px auto;
+}
+
+#tips .li_3 {
+  background-image: url(http://r3.3keji.com/08_b3.png);
+  background-size: 48px auto;
+}
+
+#tips .li_4 {
+  background-image: url(http://r3.3keji.com/08_b4.png);
+  background-size: 47px auto;
+}
+
+#tips .li_5 {
+  background-image: url(http://r3.3keji.com/08_b5.png);
+  background-size: 47px auto;
+}
+
+#tips .li_6 {
+  background-image: url(http://r3.3keji.com/08_b6.png);
+  background-size: 65px auto;
+}
+
+#tips .li_7 {
+  background-image: url(http://r3.3keji.com/08_b7.png);
+  background-size: 48px auto;
+}
+#tips .nobd{
+  border: none;
+}
+
+#tips navigator span {
+  font-size: 28rpx;
+  color: #333;
+  position: absolute;
+  top: 5pt;
+  left: 0;
+  width: 100%;
+}
+
+#tips navigator p {
+  color: #999;
+  line-height: 20px;
+  font-size: 30rpx;
+  position: absolute;
+  top: 18pt;
+  left: 0;
+  width: 100%;
+}
+
+/*hunYan*/
+#hunYan{
+  clear:both;
+  border-top: 1px solid #f0f0f0;
+  padding-top:5pt;
+}
+#hunYan .tit{
+  width: 97%;
+  padding-left:3%;
+  font-size: 30rpx;
+  position: relative;
+  display:block;
+}
+
+#hunYan .tit navigator{
+  width: auto;
+  position: absolute;
+  color:#999;
+  top:0;
+  right: 30rpx;
+  font-size: 26rpx;
+}
+
+#hunYan navigator {
+  width: 33.2%;
+  height: auto;
+  float: left;
+  text-align: center;
+  background-position: center 33pt;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+#hunYan navigator image{
+  width:85%;
+  height:220rpx;
+  display: block;
+  padding-top: 7.5%;
+  padding-bottom: 20%;
+}
+
+#hunYan navigator p{
+  position: absolute;
+  bottom:5rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color:#333;
+}
+
+
+/*hunSha*/
+#hunSha{
+  clear:both;
+  border-top: 1rpx solid #f0f0f0;
+  padding-top:5pt;
+}
+#hunSha .tit{
+  width:97%;
+  padding-left: 3%;
+  font-size: 30rpx;
+  position: relative;
+  display:block;
+}
+
+#hunSha .tit navigator{
+  width: auto;
+  position: absolute;
+  color:#999;
+  top:0;
+  right: 30rpx;
+  font-size: 26rpx;
+}
+
+#hunSha navigator {
+  width: 33.2%;
+  height: auto;
+  float: left;
+  text-align: center;
+  background-position: center 33pt;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+#hunSha navigator image{
+  width:85%;
+  height:220rpx;
+  display: block;
+  padding-top: 7.5%;
+  padding-bottom: 20%;
+}
+
+#hunSha navigator p{
+  position: absolute;
+  bottom:5rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color:#333;
+}
+
+#hunSha .flex-wrp{
+  border-bottom:  1px solid #f0f0f0;
+}
+
+.footer { width: 100%; text-align: center; line-height: 60rpx;color:#999; }
+.footer navigator{ width:33.3%;font-size: 28rpx; padding: 5px 0 5px 0;float:left; }
+.footer p{width: 100%; font-size: 28rpx;color:#999;}

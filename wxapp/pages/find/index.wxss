@@ -1,0 +1,15 @@
+/* pages/find/index.wxss */
+
+.item{
+    padding: 3%;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.item icon{
+    width: 46rpx;
+    height: 46rpx;
+    vertical-align: middle;
+}

@@ -1,0 +1,15 @@
+<!--pages/user/index.wxml-->
+<view class="container">
+  <view class="userinfo" url="url">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname" >
+            {{userInfo.nickName}}
+        </text>
+        <navigator url="/pages/logs/logs" style="font-size:24rpx;" hover-class="none" >
+            <text>
+                查看启动日志
+            </text>
+        </navigator>
+  </view>
+</view>
+

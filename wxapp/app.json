@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/find/index",
+    "pages/find/news",
+    "pages/user/index",
+    "pages/index/aboutus",
+    "pages/index/contactus",
+    "pages/index/appdl",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "桔子精选婚庆",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"res/images/homeoff.png",
+      "selectedIconPath":"res/images/home.png"
+    }, {
+      "pagePath": "pages/find/index",
+      "text": "发现",
+      "iconPath":"res/images/findoff.png",
+      "selectedIconPath":"res/images/find.png"
+    },{
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath":"res/images/useroff.png",
+      "selectedIconPath":"res/images/user.png"
+    }],
+    "color":"#bfbfbf",
+    "selectedColor":"#2c2c2c",
+    "borderStyle":"white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

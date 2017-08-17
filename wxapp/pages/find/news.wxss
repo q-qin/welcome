@@ -1,0 +1,10 @@
+/* pages/find/news.wxss */
+
+
+.list .item{
+    padding: 3%;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+}

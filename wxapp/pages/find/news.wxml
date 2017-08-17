@@ -1,0 +1,6 @@
+<!--pages/find/news.wxml-->
+<view class="list">
+    <navigator url="url" class="item" wx:for="{{list}}" wx:for-item="item">
+        {{item.title}}
+    </navigator>
+</view>

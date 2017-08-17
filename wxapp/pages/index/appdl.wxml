@@ -1,0 +1,4 @@
+<!--pages/index/appdl.wxml-->
+<view id="appdl">
+  <p class="introduce">程序员GG正在研发中...别心急哟。</p>
+</view>
