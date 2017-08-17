@@ -1,7 +1,7 @@
-#基于angularjs1.x写的webapp [线上访问地址](http://juzi.3keji.com/)
+# 基于angularjs1.x写的webapp [线上访问地址](http://juzi.3keji.com/)
 
 
-###安装
+### 安装
 
 项目地址：（`git clone`）
 
