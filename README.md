@@ -6,5 +6,5 @@
 
 
 -------
-如果你觉得该项目对你有帮助，就打赏作者一杯奶茶吧，
-![pic](http://r3.3keji.com/donate.png)
+如果你觉得该项目对你有帮助，就打赏阿强一杯奶茶吧，
+![donate](http://r3.3keji.com/donate.png)
