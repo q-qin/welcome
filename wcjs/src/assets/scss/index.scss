@@ -1,0 +1,144 @@
+#brim-mask {
+    pointer-events: none;
+}
+
+#page {
+    padding-top: 44px;
+    background-color:#fff;
+    transition: all .3s ease;
+    overflow-x:hidden;
+}
+
+.show-menu {
+    transform: translateX($gap*40);
+}
+
+.page-cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 7;
+}
+
+
+/*模块入口样式*/
+
+.posts-list {
+    background-color: $white;
+    li {
+        padding: 10px $padding;
+        border-bottom: $border;
+    }
+    h3 {
+        @extend .title;
+        &:before {
+            content: attr(title);
+            margin-right: 10px;
+            margin-top: -3px;
+            @extend .tag;
+            color: $white;
+        }
+        &.top:before {
+            background: #E74C3C;
+        }
+        &.ask:before {
+            background: #3498DB;
+        }
+        &.good:before {
+            background: #E67E22;
+        }
+        &.job:before {
+            background: #9B59B6;
+        }
+        &.share:before {
+            background: #1ABC9C;
+        }
+    }
+    .content {
+        padding-top: 10px;
+        display: flex;
+    }
+    .avatar {
+       @extend .user-avatar;
+       width:40px;
+       height:40px;
+       background-size:100%;
+    }
+    .Audi{
+        background-image:url('../images/car/Audi.png');
+    }
+    .Bentley{
+        background-image:url('../images/car/Bentley.png');
+    }
+    .Benz{
+        background-image:url('../images/car/Benz.png');
+    }
+    .BMW{
+        background-image:url('../images/car/BMW.png');
+    }
+    .Buick{
+        background-image:url('../images/car/Buick.png');
+    }
+    .Cadillac{
+        background-image:url('../images/car/Cadillac.png');
+    }
+    .Ford{
+        background-image:url('../images/car/Ford.png');
+    }
+    .Honda{
+        background-image:url('../images/car/Honda.png');
+    }
+    .Infinity{
+        background-image:url('../images/car/Infinity.png');
+    }
+    .Kia{
+        background-image:url('../images/car/Kia.png');
+    }
+    .Lexus{
+        background-image:url('../images/car/Lexus.png');
+    }
+    .Mazda{
+        background-image:url('../images/car/Mazda.png');
+    }
+    .Mini{
+        background-image:url('../images/car/Mini.png');
+    }
+    .Nisan{
+        background-image:url('../images/car/Nisan.png');
+    }
+    .Skoda{
+        background-image:url('../images/car/Skoda.png');
+    }
+    .Toyota{
+        background-image:url('../images/car/Toyota.png');
+    }
+    .Volkswagen{
+        background-image:url('../images/car/Volkswagen.png');
+    }
+    .info {
+        display: block;
+        width: 100%;
+        flex: 1;
+    }
+    p {
+        padding: 3px 0;
+        display: flex;
+        color: $text;
+        font-size: $font-info;
+
+        &:first-child {
+            font-size: $font-content;
+        }
+        .name, time:first-child {
+           display: block;
+           width: 100%;
+           flex: 1;
+        }
+        b {
+            color: #42b983;
+        }
+    }
+}
