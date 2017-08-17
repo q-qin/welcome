@@ -1,12 +1,6 @@
 # 基于vue.js写的webapp [线上访问地址](http://wcjs.3keji.com/)
 
-## 注意：当前项目代码已经升级到2.0，采用vue-cli构建的2.0版本。1.x代码请看1.x分支。
-
-## 当前版本采用vue-cli搭建的版本。 非vue-cli的版本请看分支：not-vue-cli
-
--------
-如果你觉得该项目对你有帮助，就打赏作者一杯咖啡吧。
-![pic](http://r3.3keji.com/donate.png)
+## 当前项目代码已经升级到2.0，采用vue-cli构建的2.0版本。
 
 ### 安装
 
