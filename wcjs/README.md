@@ -1,4 +1,4 @@
-#基于vue.js写的webapp [线上访问地址](http://wcjs.3keji.com/)
+# 基于vue.js写的webapp [线上访问地址](http://wcjs.3keji.com/)
 
 ## 注意：当前项目代码已经升级到2.0，采用vue-cli构建的2.0版本。1.x代码请看1.x分支。
 
@@ -8,7 +8,7 @@
 如果你觉得该项目对你有帮助，就打赏作者一杯咖啡吧。
 ![pic](http://r3.3keji.com/donate.png)
 
-###安装
+### 安装
 
 项目地址：（`git clone`）
 
@@ -33,9 +33,9 @@ npm run dev
 npm run build
 ```
 
-###开发
+### 开发
 
-###目录结构
+### 目录结构
 <pre>
 .
 ├── README.md           
