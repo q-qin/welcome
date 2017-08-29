@@ -1,13 +1,13 @@
-#微信小程序版桔子精选婚庆
+# 微信小程序版桔子精选婚庆
 
 
 -------
 目前项目已经上线，打开微信扫一扫
 
-![wxapp](/juzi/wxapp/juzi.jpg)
+![wxapp](/wxapp/juzi.jpg)
 
 
-###目录结构
+### 目录结构
 <pre>
 .
 ├── README.md           
