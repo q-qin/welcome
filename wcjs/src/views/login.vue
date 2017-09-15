@@ -18,6 +18,7 @@
 
 <script>
     import $ from 'webpack-zepto';
+    import utils from '../libs/utils.js';
     import nvHead from '../components/header.vue';
 
     export default {
@@ -35,7 +36,7 @@
                 }
                 $.ajax({
                     type: 'POST',
-                    url: 'http://115.159.63.110:4001/applogin',
+                    url: utils.apiUrl + '/wcjs/login',
                     data: {
                         username: this.username,
                         password: this.password

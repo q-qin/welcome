@@ -72,13 +72,13 @@
                     });
                     return false;
                 }
-                $.post('http://115.159.63.110:4001/appbalance/', {userid: this.userInfo.id}, (d) => {
+                $.post(utils.apiUrl + '/wcjs/balance/', {userid: this.userInfo.id}, (d) => {
                     if (d && d.code === 0 && d.data) {
                         let data = d.data;
                         this.balance = data[0].balance;
                     }
                 });
-                $.post('http://115.159.63.110:4001/apporder', {userid: userInfo.id}, (d) => {
+                $.post(utils.apiUrl + '/wcjs/orders', {userid: userInfo.id}, (d) => {
                     if (d && d.data) {
                         let data = d.data;
                         this.user = data;

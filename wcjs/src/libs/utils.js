@@ -191,8 +191,11 @@ exports.throttle = (fn, wait, mustRun) => {
     };
 };
 
+const apiUrl = 'http://115.159.63.110:3000';
+
 exports.linkUsers = linkUsers;
 exports.fetchUsers = fetchUsers;
 exports.getCheck = getCheck;
 exports.fmtDate = fmtDate;
 exports.MillisecondToDate = MillisecondToDate;
+exports.apiUrl = apiUrl;

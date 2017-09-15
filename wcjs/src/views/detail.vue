@@ -88,7 +88,7 @@
 
             // 加载主题数据
             let userid = this.userInfo.id ? this.userInfo.id : 0;
-            $.post('http://115.159.63.110:4001/appdetail', { ladyid: this.ladyId, userid: userid }, (d) => {
+            $.post(utils.apiUrl + '/wcjs/detail', { ladyid: this.ladyId, userid: userid }, (d) => {
                 if (d && d.code === 0 && d.data) {
                     this.detail = d.data[0];
                 } else {

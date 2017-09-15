@@ -8,12 +8,13 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
-var account = require('./routes/account');
-var photo = require('./routes/photo');
-var type = require('./routes/type');
-var topic = require('./routes/topic');
-var banner = require('./routes/banner');
-var statistics = require('./routes/statistics');
+// juzi
+var juzi = require('./routes/juzi');
+// wcjs
+var wcjs = require('./routes/wcjs');
+// 后台管理系统
+var managerJuzi = require('./routes/managerJuzi');
+var managerWcjs = require('./routes/managerWcjs');
 
 var app = express();
 
@@ -49,13 +50,10 @@ app.all('*', function(req, res, next) {
 app.use('/', index);
 app.use('/users', users);
 
-app.use('/account', account);	// 账户
-app.use('/photo', photo);		// 图片
-app.use('/type', type);			// 分类
-app.use('/topic', topic);		// 专题
-app.use('/banner', banner);		// banner
-
-app.use('/statistics', statistics);		// 统计
+app.use('/juzi', juzi);
+app.use('/wcjs', wcjs);	
+app.use('/manager/juzi', managerJuzi);	
+app.use('/manager/wcjs', managerWcjs);	
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -136,7 +136,7 @@
             getTopics() {
                 let params = $.param(this.searchKey);
                 console.log(params);
-                $.post('http://115.159.63.110:4001/appladies', params, (d) => {
+                $.post(utils.apiUrl + '/wcjs/ladies', params, (d) => {
                     this.scroll = true;
                     if (d && d.code === 0 && d.data) {
                         d.data.forEach(this.mergeTopics);
