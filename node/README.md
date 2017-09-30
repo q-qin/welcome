@@ -1,7 +1,4 @@
 # nodejs
-### nodejs+mysql+express 作为前后端的接口服务
+### server nodejs+express+mysql (入门)
 
-
-### 使用方法：
-* npm install
-* npm start
+### pm2  pm2+nodejs+express+mongodb+es6/7 (进阶)
