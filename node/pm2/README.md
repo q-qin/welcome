@@ -19,7 +19,7 @@ nodejs + express + mongodb + mongoose + es6/7
 
 npm install
 
-npm run watch
+npm start
 
 ```
 
