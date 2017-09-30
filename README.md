@@ -5,7 +5,7 @@
 ### 2、juzi 桔子精选婚庆
 * angular1.x + Ionic + 包括登录和页面路由
 ### 3、node
-* nodejs + mysql + express 链接前后端和操作数据库等
+* nodejs + express + db  作为api
 ### 3、wxapp 
 * 微信小程序版桔子精选婚庆
 
