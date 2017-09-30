@@ -2,7 +2,6 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 var formidable = require('formidable'),
-	images = require('images'),
 	fs = require('fs'),
 	gm = require('gm'),
 	domain = 'http://115.159.63.110:3000',
