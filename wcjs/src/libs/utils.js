@@ -191,7 +191,7 @@ exports.throttle = (fn, wait, mustRun) => {
     };
 };
 
-const apiUrl = 'http://115.159.63.110:3000';
+const apiUrl = 'http://www.3keji.com:4001';
 
 exports.linkUsers = linkUsers;
 exports.fetchUsers = fetchUsers;

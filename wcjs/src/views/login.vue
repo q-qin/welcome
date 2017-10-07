@@ -36,7 +36,7 @@
                 }
                 $.ajax({
                     type: 'POST',
-                    url: utils.apiUrl + '/wcjs/login',
+                    url: utils.apiUrl + '/user/login',
                     data: {
                         username: this.username,
                         password: this.password
@@ -47,12 +47,17 @@
                             this.$alert(res.msg);
                             return false;
                         }
-                        let data = res.data;
+                        // let data = res.data;
                         let user = {
-                            id: data.id,
-                            username: data.username,
-                            balance: data.balance
+                            id: 1,
+                            username: 'vincent',
+                            balance: 99
                         };
+                        // let user = {
+                        //     id: data.id,
+                        //     username: data.username,
+                        //     balance: data.balance
+                        // };
                         window.window.sessionStorage.user = JSON.stringify(user);
                         this.$store.dispatch('setUserInfo', user);
                         let redirect = decodeURIComponent(this.$route.query.redirect || '/');

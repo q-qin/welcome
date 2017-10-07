@@ -11,7 +11,7 @@
         </section>
         <section class="topics">
             <ul class="user-tabs">
-                <li class="item selected" >已购性息</li>
+                <li class="item selected" >已购信息</li>
             </ul>
             <div class="message" v-for="item in currentData">
                 <section class="user">
@@ -72,13 +72,13 @@
                     });
                     return false;
                 }
-                $.post(utils.apiUrl + '/wcjs/balance/', {userid: this.userInfo.id}, (d) => {
+                $.post(utils.apiUrl + '/user/balance/', {userid: this.userInfo.id}, (d) => {
                     if (d && d.code === 0 && d.data) {
                         let data = d.data;
                         this.balance = data[0].balance;
                     }
                 });
-                $.post(utils.apiUrl + '/wcjs/orders', {userid: userInfo.id}, (d) => {
+                $.post(utils.apiUrl + '/user/orders', {userid: userInfo.id}, (d) => {
                     if (d && d.data) {
                         let data = d.data;
                         this.user = data;

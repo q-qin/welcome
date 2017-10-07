@@ -10,22 +10,22 @@
         <section id="page">
             <!-- 首页列表 -->
             <ul class="posts-list">
-                <li v-for="item in topics" :key="item.id">
-                    <router-link :to="{name:'detail',params:{id:item.ID}}">
-                    <h3 v-text="item.name"
+                <li v-for="item in topics" :key="item._id">
+                    <router-link :to="{name:'detail',params:{id:item._id}}">
+                    <h3 v-text="item.title"
                             :class="getTabInfo(item.type, true)"
                             :title="getTabInfo(item.type, false)">
                     </h3>
                     <div class="content">
-                        <div class="avatar" :class="item.logo" ></div>
+                        <!-- <div class="avatar" :class="item.logo" ></div> -->
                         <div class="info">
                             <p>
                                 <span class="name">
-                                    车辆归属地：{{item.area}}
+                                    摘要：{{item.sub_title}}
                                 </span>
                             </p>
                             <p>
-                                <time>发布时间：{{item.createtime | getLastTimeStr(true)}}</time>
+                                <time>发布时间：{{item.update_time | getLastTimeStr(true)}}</time>
                                 <time>查看详情</time>
                             </p>
                         </div>
@@ -56,7 +56,7 @@
                 topics: [],
                 index: {},
                 searchKey: {
-                    page: 1,
+                    offset: 0,
                     limit: 20,
                     tab: 'all',
                     mdrender: true
@@ -136,7 +136,7 @@
             getTopics() {
                 let params = $.param(this.searchKey);
                 console.log(params);
-                $.post(utils.apiUrl + '/wcjs/ladies', params, (d) => {
+                $.get(utils.apiUrl + '/news/list', params, (d) => {
                     this.scroll = true;
                     if (d && d.code === 0 && d.data) {
                         d.data.forEach(this.mergeTopics);
@@ -144,12 +144,12 @@
                 });
             },
             mergeTopics(topic) {
-                if (typeof this.index[topic.ID] === 'number') {
-                    const topicsIndex = this.index[topic.id];
+                if (typeof this.index[topic._id] === 'number') {
+                    const topicsIndex = this.index[topic._id];
                     this.topics[topicsIndex] = topic;
                     console.log(topic);
                 } else {
-                    this.index[topic.ID] = this.topics.length;
+                    this.index[topic._id] = this.topics.length;
                     this.topics.push(topic);
                 }
             },

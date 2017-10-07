@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nv-head page-type="车辆详情"
+        <nv-head page-type="内容详情"
                 :show-menu="showMenu"
                 :need-add="true"
                 :fix-head="true">
@@ -8,15 +8,15 @@
 
         <div id="page"
                 :class="{'show-menu':showMenu}"
-                v-if="detail.ID">
+                v-if="detail._id">
 
-            <h2 class="topic-title" v-text="detail.name"></h2>
+            <h2 class="topic-title" v-text="detail.title"></h2>
             <section class="author-info">
-                <div class="avatar" :class="detail.logo" ></div>
+                <!-- <div class="avatar" :class="detail.logo" ></div> -->
                 <div class="col">
                     <span>{{detail.name}}</span>
                     <time>
-                        发布于:{{detail.createtime | getLastTimeStr(true)}}
+                        发布于:{{detail.update_time | getLastTimeStr(true)}}
                     </time>
                 </div>
                 <div class="right">
@@ -28,7 +28,7 @@
             </section>
 
             <section class='markdown-body topic-content' >
-                <p>车辆归属地：</p>
+                <!-- <p>车辆归属地：</p>
                 <p class="pp" >{{detail.area}}</p>
                 <p>车辆简介：</p>
                 <p class="pp" v-html="detail.profile"></p>
@@ -38,6 +38,10 @@
                 <p>联系方式：</p>
                 <p class="pp" v-html="detail.contact"></p>
                 <p>车辆价格：</p>
+                <p class="pp" v-html="detail.description"></p> -->
+                <p>摘要：</p>
+                <p class="pp" >{{detail.sub_title}}</p>
+                <p>正文：</p>
                 <p class="pp" v-html="detail.description"></p>
             </section>
 
@@ -88,9 +92,9 @@
 
             // 加载主题数据
             let userid = this.userInfo.id ? this.userInfo.id : 0;
-            $.post(utils.apiUrl + '/wcjs/detail', { ladyid: this.ladyId, userid: userid }, (d) => {
+            $.post(utils.apiUrl + '/news/detail', { tid: this.ladyId, uid: userid }, (d) => {
                 if (d && d.code === 0 && d.data) {
-                    this.detail = d.data[0];
+                    this.detail = d.data;
                 } else {
                     this.noData = true;
                 }
