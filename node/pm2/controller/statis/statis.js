@@ -14,24 +14,22 @@ class Statis {
 		if (!date) {
 			console.log('参数错误')
 			res.send({
-				status: 0,
-				type: 'ERROR_PARAMS',
-				message: '参数错误'
+				code: -1,
+				msg: '参数错误'
 			})
 			return
 		}
 		try{
 			const count = await StatisModel.find({date}).count()
 			res.send({
-				status: 1,
-				count,
+				code: 0,
+				data:count,
 			})
 		}catch(err){
 			console.log('获取当天API请求次数失败');
 			res.send({
-				status: 0,
-				type: 'ERROR_GET_TODAY_API_COUNT',
-				message: '获取当天API请求次数失败'
+				code: -1,
+				msg: '获取当天API请求次数失败'
 			})
 		}
 	}
@@ -39,15 +37,14 @@ class Statis {
 		try{
 			const count = await StatisModel.count()
 			res.send({
-				status: 1,
-				count,
+				code: 0,
+				data:count,
 			})
 		}catch(err){
 			console.log('获取所有API请求次数失败');
 			res.send({
-				status: 0,
-				type: 'ERROR_GET_ALL_API_COUNT',
-				message: '获取所有API请求次数失败'
+				code: -1,
+				msg: '获取所有API请求次数失败'
 			})
 		}
 	}
@@ -58,9 +55,8 @@ class Statis {
 		}catch(err){
 			console.log('获取所有API请求信息失败');
 			res.send({
-				status: 0,
-				type: 'GET_ALL_API_RECORD_DATA_FAILED',
-				message: '获取所有API请求信息失败'
+				code: -1,
+				msg: '获取所有API请求信息失败'
 			})
 		}
 	}
@@ -69,24 +65,22 @@ class Statis {
 		if (!date) {
 			console.log('参数错误')
 			res.send({
-				status: 0,
-				type: 'ERROR_PARAMS',
-				message: '参数错误'
+				code: -1,
+				msg: '参数错误'
 			})
 			return
 		}
 		try{
 			const count = await UserInfoModel.find({registe_time: eval('/^' + date + '/gi')}).count()
 			res.send({
-				status: 1,
-				count,
+				code: 0,
+				data:count,
 			})
 		}catch(err){
 			console.log('获取当天注册人数失败');
 			res.send({
-				status: 0,
-				type: 'ERROR_GET_USER_REGISTE_COUNT',
-				message: '获取当天注册人数失败'
+				code: -1,
+				msg: '获取当天注册人数失败'
 			})
 		}
 	}
@@ -95,24 +89,22 @@ class Statis {
 		if (!date) {
 			console.log('参数错误')
 			res.send({
-				status: 0,
-				type: 'ERROR_PARAMS',
-				message: '参数错误'
+				code: -1,
+				msg: '参数错误'
 			})
 			return
 		}
 		try{
 			const count = await AdminModel.find({create_time: eval('/^' + date + '/gi')}).count()
 			res.send({
-				status: 1,
-				count,
+				code: 0,
+				data:count,
 			})
 		}catch(err){
 			console.log('获取当天注册管理员人数失败');
 			res.send({
-				status: 0,
-				type: 'ERROR_GET_ADMIN_REGISTE_COUNT',
-				message: '获取当天注册管理员人数失败'
+				code: -1,
+				msg: '获取当天注册管理员人数失败'
 			})
 		}
 	}

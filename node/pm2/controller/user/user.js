@@ -16,38 +16,20 @@ class User extends AddressComponent {
 		this.updateAvatar = this.updateAvatar.bind(this);
 	}
 	async login(req, res, next){
-		const cap = req.cookies.cap;
-		if (!cap) {
-			console.log('验证码失效')
-			res.send({
-				status: -1,
-				message: '验证码失效',
-			})
-			return
-		}
 		const form = new formidable.IncomingForm();
 		form.parse(req, async (err, fields, files) => {
-			const {username, password, captcha_code} = fields;
+			const {username, password} = fields;
 			try{
 				if (!username) {
 					throw new Error('用户名参数错误');
 				}else if(!password){
 					throw new Error('密码参数错误');
-				}else if(!captcha_code){
-					throw new Error('验证码参数错误');
 				}
 			}catch(err){
 				console.log('登陆参数错误', err);
 				res.send({
-					status: -1,
-					message: err.message,
-				})
-				return
-			}
-			if (cap.toString() !== captcha_code.toString()) {
-				res.send({
-					status: -1,
-					message: '验证码不正确',
+					code: -1,
+					msg: err.message,
 				})
 				return
 			}
@@ -56,36 +38,29 @@ class User extends AddressComponent {
 				const user = await UserModel.findOne({username});
 				//创建一个新的用户
 				if (!user) {
-					// const user_id = await this.getId('user_id');
-					// const cityInfo = await this.guessPosition(req);
-					// const registe_time = dtime().format('YYYY-MM-DD HH:mm');
-					// const newUser = {username, password: newpassword, user_id};
-					// const newUserInfo = {username, user_id, id: user_id, city: cityInfo.city, registe_time, };
-					// UserModel.create(newUser);
-					// const createUser = new UserInfoModel(newUserInfo);
-					// const userinfo = await createUser.save();
-					// req.session.user_id = user_id;
-					//res.send(userinfo);
 					res.send({
-						status: -1,
-						message: '暂无用户',
+						code: -1,
+						msg: '暂无用户',
 					})
 					return 
 				}else if (user.password.toString() !== newpassword.toString()) {
 					res.send({
-						status: -1,
-						message: '密码错误',
+						code: -1,
+						msg: '密码错误',
 					})
 					return 
 				}else{
 					req.session.user_id = user.user_id;
 					const userinfo = await UserInfoModel.findOne({user_id: user.user_id}, '-_id');
-					res.send(userinfo) 
+					res.send({
+						code:0,
+						data:userinfo
+					}) 
 				}
 			}catch(err){
 				res.send({
-					status: -1,
-					message: '登陆失败',
+					code: -1,
+					msg: '登陆失败',
 				})
 			}
 		})
@@ -96,20 +71,22 @@ class User extends AddressComponent {
 		const user_id = sid || qid;
 		if (!user_id || !Number(user_id)) {
 			res.send({
-				status: -1,
-				message: '通过session获取用户信息失败',
+				code: -1,
+				msg: '通过session获取用户信息失败',
 			})
 			return 
 		}
 		try{
 			const userinfo = await UserInfoModel.findOne({user_id}, '-_id');
-			res.send(userinfo) 
+			res.send({
+				code:0,
+				data:userinfo
+			}) 
 		}catch(err){
 			console.log('通过session获取用户信息失败', err);
 			res.send({
-				status: 0,
-				type: 'GET_USER_INFO_FAIELD',
-				message: '通过session获取用户信息失败',
+				code: -1,
+				msg: '通过session获取用户信息失败',
 			})
 		}
 	}
@@ -118,42 +95,33 @@ class User extends AddressComponent {
 		if (!user_id || !Number(user_id)) {
 			console.log('通过ID获取用户信息失败')
 			res.send({
-				status: 0,
-				type: 'GET_USER_INFO_FAIELD',
-				message: '通过用户ID获取用户信息失败',
+				code: 0,
+				msg: '通过用户ID获取用户信息失败',
 			})
 			return 
 		}
 		try{
 			const userinfo = await UserInfoModel.findOne({user_id}, '-_id');
-			res.send(userinfo) 
+			res.send({
+				code:0,
+				data:userinfo
+			}) 
 		}catch(err){
 			console.log('通过用户ID获取用户信息失败', err);
 			res.send({
-				status: 0,
-				type: 'GET_USER_INFO_FAIELD',
-				message: '通过用户ID获取用户信息失败',
+				code: -1,
+				msg: '通过用户ID获取用户信息失败',
 			})
 		}
 	}
 	async signout(req, res, next){
 		delete req.session.user_id;
 		res.send({
-			status: 1,
-			message: '退出成功'
+			code: 0,
+			msg: '退出成功'
 		})
 	}
 	async chanegPassword(req, res, next){
-		const cap = req.cookies.cap;
-		if (!cap) {
-			console.log('验证码失效')
-			res.send({
-				status: 0,
-				type: 'ERROR_CAPTCHA',
-				message: '验证码失效',
-			})
-			return
-		}
 		const form = new formidable.IncomingForm();
 		form.parse(req, async (err, fields, files) => {
 			const {username, oldpassWord, newpassword, confirmpassword, captcha_code} = fields;
@@ -168,23 +136,19 @@ class User extends AddressComponent {
 					throw new Error('必须填写确认密码');
 				}else if(newpassword !== confirmpassword){
 					throw new Error('两次密码不一致');
-				}else if(!captcha_code){
-					throw new Error('请填写验证码');
 				}
 			}catch(err){
 				console.log('修改密码参数错误', err);
 				res.send({
-					status: 0,
-					type: 'ERROR_QUERY',
-					message: err.message,
+					code: -1,
+					msg: err.message,
 				})
 				return
 			}
 			if (cap.toString() !== captcha_code.toString()) {
 				res.send({
-					status: 0,
-					type: 'ERROR_CAPTCHA',
-					message: '验证码不正确',
+					code: -1,
+					msg: '验证码不正确',
 				})
 				return
 			}
@@ -193,30 +157,27 @@ class User extends AddressComponent {
 				const user = await UserModel.findOne({username});
 				if (!user) {
 					res.send({
-						status: 0,
-						type: 'USER_NOT_FOUND',
-						message: '未找到当前用户',
+						code: -1,
+						msg: '未找到当前用户',
 					})
 				}else if(user.password.toString() !== md5password.toString()){
 					res.send({
-						status: 0,
-						type: 'ERROR_PASSWORD',
-						message: '密码不正确',
+						code: -1,
+						msg: '密码不正确',
 					})
 				}else{
 					user.password = this.encryption(newpassword);
 					user.save();
 					res.send({
-						status: 1,
-						success: '密码修改成功',
+						code: 0,
+						msg: '密码修改成功',
 					})
 				}
 			}catch(err){
 				console.log('修改密码失败', err);
 				res.send({
-					status: 0,
-					type: 'ERROR_CHANGE_PASSWORD',
-					message: '修改密码失败',
+					code: -1,
+					msg: '修改密码失败',
 				})
 			}
 		})
@@ -237,9 +198,8 @@ class User extends AddressComponent {
 		}catch(err){
 			console.log('获取用户列表数据失败', err);
 			res.send({
-				status: 0,
-				type: 'GET_DATA_ERROR',
-				message: '获取用户列表数据失败'
+				code: -1,
+				msg: '获取用户列表数据失败'
 			})
 		}
 	}
@@ -247,15 +207,14 @@ class User extends AddressComponent {
 		try{
 			const count = await UserInfoModel.count();
 			res.send({
-				status: 1,
-				count,
+				code: 0,
+				data:count,
 			})
 		}catch(err){
 			console.log('获取用户数量失败', err);
 			res.send({
-				status: 0,
-				type: 'ERROR_TO_GET_USER_COUNT',
-				message: '获取用户数量失败'
+				code: -1,
+				msg: '获取用户数量失败'
 			})
 		}
 	}
@@ -266,9 +225,8 @@ class User extends AddressComponent {
 		if (!user_id || !Number(user_id)) {
 			console.log('更新头像，user_id错误', user_id)
 			res.send({
-				status: 0,
-				type: 'ERROR_USERID',
-				message: 'user_id参数错误',
+				code: -1,
+				msg: 'user_id参数错误',
 			})
 			return 
 		}
@@ -277,15 +235,14 @@ class User extends AddressComponent {
 			const image_path = await this.getPath(req);
 			await UserInfoModel.findOneAndUpdate({user_id}, {$set: {avatar: image_path}});
 			res.send({
-				status: 1,
-				image_path,
+				code: 0,
+				data:image_path,
 			})
 		}catch(err){
 			console.log('上传图片失败', err);
 			res.send({
-				status: 0,
-				type: 'ERROR_UPLOAD_IMG',
-				message: '上传图片失败'
+				code: -1,
+				msg: '上传图片失败'
 			})
 		}
 	}
@@ -298,7 +255,7 @@ class User extends AddressComponent {
 		filterArr.push(UserInfoModel.$where('!"北京上海深圳杭州".includes(this.city)').count())
 		Promise.all(filterArr).then(result => {
 			res.send({
-				status: 1,
+				code: 0,
 				user_city: {
 					beijing: result[0],
 					shanghai: result[1],
@@ -310,9 +267,8 @@ class User extends AddressComponent {
 		}).catch(err => {
 			console.log('获取用户分布城市数据失败', err);
 			res.send({
-				status: 0,
-				type: 'ERROR_GET_USER_CITY',
-				message: '获取用户分布城市数据失败'
+				code: -1,
+				msg: '获取用户分布城市数据失败'
 			})
 		})
 	}
