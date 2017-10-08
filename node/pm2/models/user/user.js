@@ -1,6 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose'
+import userData from '../../InitData/user'
 
 const Schema = mongoose.Schema;
 
@@ -11,5 +12,10 @@ const userSchema = new Schema({
 })
 
 const User = mongoose.model('User', userSchema);
+User.findOne((err, data) => {
+	if (!data) {
+		User.create(userData);
+	}
+});
 
 export default User
