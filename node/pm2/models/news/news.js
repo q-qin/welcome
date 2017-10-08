@@ -9,8 +9,8 @@ const newsSchema = new Schema({
 	title: String,
 	sub_title: String,
 	type: {
-		type: Number,
-		default: 1
+		type: String,
+		default: ''
 	},
 	description: {
 		type: String,

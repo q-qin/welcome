@@ -94,15 +94,23 @@ class News extends BaseComponent{
 		})
 	}
 
+	async delNews(req,res,next){
+		const form = new formidable.IncomingForm();
+		form.parse(req, async (err, fields, files) => {
+			const {ids} = fields;
+			
+		})
+	}
+
 	async getNewsList(req, res, next){
 		try{
-			const {limit=0, offset=0} = req.query;
+			const {limit=0, offset=0,tab=''} = req.query;
 			if(!Number(limit)){
 				throw new Error('limit参数错误')
 			}else if(typeof Number(offset) !== 'number'){
 				throw new Error('offset参数错误')
 			}
-			const news = await NewsModel.find({}).sort({id: -1}).limit(Number(limit)).skip(Number(offset));
+			const news = await NewsModel.find({}).sort({sort: -1}).limit(Number(limit)).skip(Number(offset));
 			
 			res.send({
 				code: 0,
