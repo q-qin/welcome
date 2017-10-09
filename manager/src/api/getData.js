@@ -35,7 +35,7 @@ export const apiAllCount = () => fetch('/statis/api/count');
  * 所有api请求信息
  */
 
-export const apiAllRecord = () => fetch('/statis/api/all');
+export const apiAllRecord = (date,offset,limit) => fetch('/statis/api/'+date+'/all/'+offset+'/'+limit);
 
 /**
  * 用户注册量

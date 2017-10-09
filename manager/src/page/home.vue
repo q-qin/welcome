@@ -4,29 +4,54 @@
 		<section class="data_section">
 			<header class="section_title">数据统计</header>
 			<el-row :gutter="20" style="margin-bottom: 10px;">
-				<el-col :span="5"><div class="data_list"><span class="data_num">{{apiCount}}</span> API请求量</div></el-col>
+				<el-col :span="24"><div class="data_list">今日 : <span class="data_num">{{today}}</span>  API请求量 : <span class="data_num">{{apiCount}}</span></div></el-col>
 			</el-row>
 		</section>
+        <div class="table_container">
+            <el-table :data="apiAll" highlight-current-row border style="width: 100%" >
+                <el-table-column type="selection" width="45">
+                </el-table-column>
+                <el-table-column
+                  property="id"
+                  label="ID">
+                </el-table-column>
+                <el-table-column
+                  property="origin"
+                  label="来源">
+                </el-table-column>
+                <el-table-column
+                  property="date"
+                  label="日期">
+                </el-table-column>
+            </el-table>
+            <div class="Pagination" style="text-align: left;margin-top: 10px;">
+                <el-pagination 
+                    @size-change="handleSizeChange" 
+                    @current-change="handleCurrentChange" 
+                    :page-sizes="[10,20,50]"
+                    :current-page="currentPage" 
+                    :page-size="limit" 
+                    layout="total, sizes, prev, pager, next, jumper" 
+                    :total="apiCount">
+                </el-pagination>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 	import headTop from '../components/headTop'
 	import dtime from 'time-formater'
-	import {apiCount, userCount, orderCount, apiAllCount, getUserCount, getOrderCount, adminDayCount, adminCount} from '@/api/getData'
+	import {apiCount,apiAllRecord} from '@/api/getData'
     export default {
     	data(){
     		return {
     			apiCount: null,
-    			userCount: null,
-    			orderCount: null,
-                adminCount: null,
-                allApiCount: null,
-                allUserCount: null,
-                allOrderCount: null,
-                allAdminCount: null,
-    			sevenDay: [],
-    			sevenDate: [[],[],[],[]],
+                apiAll:[],
+                offset:0,
+                limit:10,
+                currentPage: 1,
+                today:dtime().format('YYYY-MM-DD'),
     		}
     	},
     	components: {
@@ -34,54 +59,43 @@
     	},
     	mounted(){
     		this.initData();
-    		for (let i = 6; i > -1; i--) {
-    			const date = dtime(new Date().getTime() - 86400000*i).format('YYYY-MM-DD')
-    			this.sevenDay.push(date)
-    		}
-    		//this.getSevenData();
     	},
         computed: {
 
         },
     	methods: {
     		async initData(){
-    			const today = dtime().format('YYYY-MM-DD')
-    			// Promise.all([apiCount(today), userCount(today), orderCount(today), adminDayCount(today), apiAllCount(), getUserCount(), getOrderCount(), adminCount()])
-                Promise.all([apiCount(today)])
+                Promise.all([apiCount(this.today),apiAllRecord(this.today,this.offset,this.limit)])
     			.then(res => {
     				this.apiCount = res[0].data;
-    				this.userCount = res[1].count;
-    				this.orderCount = res[2].count;
-                    this.adminCount = res[3].count;
-                    this.allApiCount = res[4].count;
-                    this.allUserCount = res[5].count;
-                    this.allOrderCount = res[6].count;
-                    this.allAdminCount = res[7].count;
+    				this.apiAll = res[1].data;
     			}).catch(err => {
     				console.log(err)
     			})
     		},
-    		async getSevenData(){
-    			const apiArr = [[],[],[],[]];
-    			this.sevenDay.forEach(item => {
-    				//apiArr[0].push(apiCount(item))
-    				// apiArr[1].push(userCount(item))
-    				// apiArr[2].push(orderCount(item))
-                    // apiArr[3].push(adminDayCount(item))
-    			})
-    			const promiseArr = [...apiArr[0], ...apiArr[1], ...apiArr[2], ...apiArr[3]]
-    			Promise.all(promiseArr).then(res => {
-    				const resArr = [[],[],[],[]];
-					res.forEach((item, index) => {
-						if (item.code == 0) {
-							resArr[Math.floor(index/7)].push(item.count)
-						}
-					})
-					this.sevenDate = resArr;
-    			}).catch(err => {
-    				console.log(err)
-    			})
-    		}
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+                this.limit = val;
+                this.initData();
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
+                this.offset = (val - 1) * this.limit;
+                console.log(this.currentPage, this.offset)
+                this.getApis()
+            },
+            async getApis(){
+                try {
+                    const Apis = await apiAllRecord(this.today,this.offset,this.limit);
+                    if(Apis.code ==0){
+                        this.apiAll = Apis.data;
+                    }else {
+                        throw new Error('获取数据失败');
+                    }
+                } catch (err) {
+                    console.log('获取数据失败', err);
+                }
+            },
     	}
     }
 </script>
@@ -103,7 +117,7 @@
             border-radius: 6px;
             background: #E5E9F2;
             .data_num{
-                color: #333;
+                color: #324057;
                 font-size: 26px;
 
             }
@@ -123,5 +137,8 @@
 	}
     .wan{
         .sc(16px, #333)
+    }
+    .table_container{
+        padding: 20px;
     }
 </style>

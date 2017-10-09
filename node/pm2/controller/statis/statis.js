@@ -49,9 +49,23 @@ class Statis {
 		}
 	}
 	async allApiRecord(req, res, next){
+		const date = req.params.date;
+		const offset = req.params.offset;
+		const limit = req.params.limit;
+		if (!date || !offset || !limit) {
+			console.log('参数错误')
+			res.send({
+				code: -1,
+				msg: '参数错误'
+			})
+			return
+		}
 		try{
-			const allRecord = await StatisModel.find({}, '-_id -__v')
-			res.send(allRecord)
+			const allRecord = await StatisModel.find({date}, '-_id -__v').limit(Number(limit)).skip(Number(offset))
+			res.send({
+				code:0,
+				data:allRecord
+			})
 		}catch(err){
 			console.log('获取所有API请求信息失败');
 			res.send({

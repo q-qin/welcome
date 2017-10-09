@@ -34,8 +34,8 @@
     .icon-top {
         position: fixed;
         right: 10px;
-        bottom: 80px;
-        font-size: 50px;
+        bottom: 35px;
+        font-size: 35px;
         z-index: 9999;
         color: #42b983;
     }

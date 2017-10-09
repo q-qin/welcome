@@ -159,7 +159,8 @@
                     let totalheight = parseInt($(window).height(), 20) + parseInt($(window).scrollTop(), 20);
                     if ($(document).height() <= totalheight + 200) {
                         this.scroll = false;
-                        this.searchKey.page += 1;
+                        this.searchKey.offset += 10;
+                        this.searchKey.limit += 10;
                         // this.getTopics();
                     }
                 }
