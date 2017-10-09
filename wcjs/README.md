@@ -1,6 +1,5 @@
 # 基于vue.js写的webapp [线上访问地址](http://wcjs.3keji.com/)
 
-## 当前项目代码已经升级到2.0，采用vue-cli构建的2.0版本。
 
 ### 安装
 
