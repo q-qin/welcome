@@ -1,8 +1,8 @@
 {
-  "name": "vue-cnode",
-  "version": "2.0.0",
-  "description": "用Vue.js 重写Cnodejs社区",
-  "author": "唐岗 <429517385@qq.com>",
+  "name": "vue-wcjs",
+  "version": "1.0.0",
+  "description": "Vue.js写的webapp",
+  "author": "q-qin",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -10,7 +10,6 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "keywords": [
-    "cnode",
     "WebApp",
     "Vue",
     "Webpack",
