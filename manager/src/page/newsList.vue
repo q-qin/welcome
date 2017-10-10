@@ -4,7 +4,7 @@
         <el-row type="flex" class="top_bar" justify="end">
             <el-col :span="24" >
                 <el-button type="danger" icon="el-icon-delete" @click="news_del" style="float:right;margin-right:20px;">删除</el-button>
-                <el-button type="primary" icon="el-icon-plus" @click="news_add" style="float:right;margin-right:20px;">添加</el-button>
+                <el-button type="primary" icon="el-icon-plus" @click="news_add()" style="float:right;margin-right:20px;">添加</el-button>
             </el-col>
         </el-row>
         <div class="table_container">
@@ -52,8 +52,8 @@
                 <el-form-item label="摘要：" label-width="120px">
                     <el-input v-model="form.sub_title" placeholder="请输入摘要"></el-input>
                 </el-form-item>
-                 <el-form-item label="文章类型：" prop="type" label-width="120px">
-                    <el-select v-model="form.type" placeholder="请选择文章类型">
+                 <el-form-item label="文章类型：" label-width="120px">
+                    <el-select v-model="type" placeholder="请选择文章类型">
                         <el-option label="置顶" value="0"></el-option>
                         <el-option label="精华" value="1"></el-option>
                         <el-option label="分享" value="2"></el-option>
@@ -91,18 +91,12 @@ export default {
     data() {
         return {
             editor:0,
-            form: {
-                name:'',
-                region:''
-            },
-            formLabelWidth:'120px',
+            form: {},
+            type:'',
             editorOption: {},
             rules:{
                 title: [
                     { required: true, message: '请输入标题', trigger: 'blur' }
-                  ],
-                type:[
-                    { required: true, message: '请选择类型', trigger: 'change' }
                   ],
             },
             tableData: [],
@@ -158,12 +152,12 @@ export default {
         },
         news_add() {
             this.editor = 0;
-            this.form = {}
             this.dialogFormVisible = true;
         },
         news_edit(index, row) {
             this.editor = 1;
             this.form = row;
+            this.type = row.type;
             this.dialogFormVisible = true;
         },
         handleSelectionChange(val){
@@ -179,11 +173,14 @@ export default {
             }
         },
         submitForm(formName) {
+            this.form.type=this.type;
             this.$refs[formName].validate((valid) => {
                 if(!valid){
                     return false;
                 }
             })
+            debugger
+            return 
             if(!!this.editor){
                 this.NewsEdit(this.form)
             }else{
