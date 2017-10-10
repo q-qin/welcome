@@ -152,6 +152,8 @@ export default {
         },
         news_add() {
             this.editor = 0;
+            this.form={};
+            this.type='';
             this.dialogFormVisible = true;
         },
         news_edit(index, row) {
@@ -178,14 +180,12 @@ export default {
                 if(!valid){
                     return false;
                 }
+                if(!!this.editor){
+                    this.NewsEdit(this.form)
+                }else{
+                    this.NewsAdd(this.form)
+                }
             })
-            debugger
-            return 
-            if(!!this.editor){
-                this.NewsEdit(this.form)
-            }else{
-                this.NewsAdd(this.form)
-            }
         },
         resetForm(formName){
             this.$refs[formName].resetFields();
