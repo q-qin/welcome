@@ -3,7 +3,7 @@
 ### 1、wcjs 挖草js
 * Vue2.x 列表 + 详细页面  移动webapp应用
 ### 2、juzi 桔子精选婚庆
-* angular1.x + IonicUI  移动webapp应用
+* angular1.x + IonicUI  移动webapp应用1
 ### 3、node
 * nodejs + express + db  作为前后端交互媒介
 ### 3、wxapp 
