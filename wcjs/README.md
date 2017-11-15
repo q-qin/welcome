@@ -15,7 +15,7 @@ git clone https://github.com/q-qin/github.git
 npm install
 ```
 
-启动服务(http://localhost:8020)
+启动服务(http://localhost:8008)
 
 ```
 npm run dev
