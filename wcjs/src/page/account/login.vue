@@ -71,6 +71,7 @@
     };
 </script>
 <style lang="less" scoped>
+    @import '../colors.less';
     .page-body {
         padding: 50px 15px;
         min-height: 400px;
