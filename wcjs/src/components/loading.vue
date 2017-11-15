@@ -1,59 +1,79 @@
 <template>
-    <div v-show="show" id="wxloading" class="wx_loading">
-        <div class="wx_loading_inner">
-            <i class="wx_loading_icon"></i>{{showTxt}}...
+    <div class="loading" v-show="loading" >
+    	<div class="indicator" style="">
+            <div class="indicator-wrapper" style="padding: 15px;">
+                <span class="indicator-spin">
+                    <div class="spinner-snake" style="border-top-color: #ccc; border-left-color: #ccc; border-bottom-color: #ccc; height: 32px; width: 32px;">
+                    </div>
+                </span> 
+            </div> 
+            <div class="indicator-mask"></div>
         </div>
     </div>
 </template>
 <script>
     export default {
         replace: true,
-        props: ['showTxt', 'show']
+        data() {
+        	return{}
+        },
+        props: {
+        	loading:{
+        		type:Boolean,
+        		default:false
+        	},
+        },
+        mounted() {
+        },
+        methods: {
+
+        }
     };
 </script>
-<style lang="scss">
-    .wx_loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 9999;
-        background-color: rgba(0, 0, 0, 0);
-        .wx_loading_inner {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-left: -70px;
-            margin-top: -48px;
-            width: 150px;
-            border-radius: 6px;
-            font-size: 14px;
-            padding: 58px 0 10px 0;
-            .wx_loading_icon {
-                position: absolute;
-                top: 15px;
-                left: 50%;
-                margin-left: -16px;
-                width: 24px;
-                height: 24px;
-                border: 2px solid #fff;
-                border-radius: 24px;
-                animation: gif 1s infinite linear;
-                clip: rect(0 auto 12px 0);
+<style  lang="less" scoped>
+.indicator{
+    transition: opacity .2s linear
+}
+.indicator-wrapper{
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: .25rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+}
+.indicator-spin{
+    display: inline-block;
+    text-align: center;
+}
 
-                @keyframes gif {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-            }
-        }
+@-webkit-keyframes spinner-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.spinner-snake{
+    -webkit-animation: spinner-rotate 0.8s infinite linear;
+    animation: spinner-rotate 0.8s infinite linear;
+    border: 4px solid transparent;
+    border-radius: 50%;
+}
+.indicator-mask{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: transparent;
+}
 </style>

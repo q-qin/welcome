@@ -1,26 +1,32 @@
 <template>
-    <section id="sideBar" class="nav-list" :class="{'show':showMenu}">
-        <user-info></user-info>
+    <section id="sideBar" class="nav-list" :class="{'show':menuToggle}">
+    	<userInfo></userInfo>
         <section class="list-ul">
-            <router-link class="icon-quanbu iconfont item" :to="{'name':'list',query:{tab:'all'}}">全部</router-link>
-            <router-link class="icon-hao iconfont item" :to="{'name':'list',query:{tab:'good'}}">精华</router-link>
-            <router-link class="icon-fenxiang iconfont item" :to="{'name':'list',query:{tab:'share'}}">分享</router-link>
-            <router-link class="icon-xiaoxi iconfont item " :to="{'name':'list',query:{tab:'bad'}}">打假</router-link>
-            <router-link class="icon-about iconfont item line" :to="{'name':'about'}">关于</router-link>
+            <router-link class="icon-quanbu iconfont item" :to="{'name':'list',query:{tab:'all'}}" >全部</router-link>
+            <router-link class="icon-hao iconfont item" :to="{'name':'list',query:{tab:'good'}}" >精华</router-link>
+            <router-link class="icon-fenxiang iconfont item" :to="{'name':'list',query:{tab:'share'}}" >分享</router-link>
+            <router-link class="icon-xiaoxi iconfont item " :to="{'name':'list',query:{tab:'bad'}}" >打假</router-link>
+            <router-link class="icon-about iconfont item line" :to="{'name':'about'}" >关于</router-link>
         </section>
     </section>
 </template>
 <script>
+	import userInfo from './userinfo'
     export default {
         replace: true,
-        props: ['showMenu', 'pageType', 'nickName', 'profileUrl'],
+        props: ['menuToggle'],
         components: {
-            'userInfo': require('./user-info.vue')
+        	userInfo
+        },
+        methods:{
+        	flushCom(){
+        		this.$router.go(0);
+        	}
         }
     };
 </script>
 
-<style lang="scss">
+<style lang="less" scoped>
     /*侧边栏*/
     
     .nav-list {

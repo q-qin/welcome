@@ -1,8 +1,7 @@
 <template>
-<div class="iconfont icon-top" v-show="show" @click="goTop">&#xe611;</div>
+    <div class="icon-top" v-show="show" @click="goTop"></div>
 </template>
 <script>
-    import $ from 'webpack-zepto';
     export default {
         replace: true,
         data() {
@@ -11,32 +10,39 @@
             };
         },
         mounted() {
-            $(window).on('scroll', () => {
-                if ($(window).scrollTop() > 100) {
+            window.addEventListener('scroll',()=>{
+                //console.log(window.scrollY)
+                if(window.scrollY > 100){
                     this.show = true;
-                } else {
+                }else{
                     this.show = false;
                 }
-            });
-        },
-        beforeDestory() {
-            $(window).off('scroll');
+            })
         },
         methods: {
             goTop() {
-                $(window).scrollTop(0);
+                document.body.scrollTop = 0
+                document.documentElement.scrollTop = 0
                 this.show = false;
             }
         }
     };
 </script>
-<style>
+<style lang="less" scoped>
     .icon-top {
         position: fixed;
-        right: 10px;
-        bottom: 35px;
-        font-size: 35px;
-        z-index: 9999;
-        color: #42b983;
+        right: 1rem;
+        bottom: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border:.05rem solid #999;
+        z-index: 99;
+        color: #FEA500;
+        background-image: url(../images/topback.png) ;
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0 0 .2rem #999;
     }
 </style>
