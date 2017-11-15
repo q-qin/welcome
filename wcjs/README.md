@@ -15,7 +15,7 @@ git clone https://github.com/q-qin/github.git
 npm install
 ```
 
-启动服务(http://localhost:8020)
+启动服务(http://localhost:8008)
 
 ```
 npm run dev
@@ -38,10 +38,14 @@ npm run build
 ├── index.html         // 项目入口文件
 ├── package.json       // 项目配置文件
 ├── src                // 生产目录
-│   ├── assets         // css js 和图片资源
 │   ├── components     // 各种组件
-│   ├── views          // 各种页面
-│   ├── vuex           // vuex状态管理器
+│   ├── config         // 配置文件
+│   ├── images         // 图片资源
+│   ├── page           // 各种页面
+│   ├── router         // 页面路由
+│   ├── statistics     // 统计
+│   ├── store          // vuex状态管理器
+│   ├── style          // css 资源
 │   ├── filters.js     // 各种过滤器
 │   └── main.js        // Webpack 预编译入口
 </pre>
