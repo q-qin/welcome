@@ -10,7 +10,8 @@
 	    </nv-head>
 	    <nv-loading :loading="loading"></nv-loading>
 	    <div class="main" :class="{'fix-head':true}" v-show="!loading">
-	    	<ul class="posts-list">
+	    	<mt-loadmore  :top-method="loadTop"  :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore" @top-status-change="handleTopChange" >
+	    	<ul class="posts-list" >
 	    		<li v-for="item in list" :key="item._id">
 	    			<router-link :to="{name:'detail',params:{id:item._id}}">
 	    				<h3 v-text="item.title"
@@ -32,6 +33,7 @@
 	    			</router-link>
 	    		</li>
 	    	</ul>
+	    	</mt-loadmore>
 	    </div>
 	    <nv-top></nv-top>
 	</div>
@@ -43,12 +45,14 @@ import nvLoading from '@/components/loading.vue';
 import nvTop from '@/components/backtotop.vue';
 import {mapState} from 'vuex';
 import ajax from '@/config/ajax';
+import fetch from '@/config/fetch';
 
 export default {
 	name: 'a_detail',
 	data(){
 		return{
 			loading:true,
+			allLoaded:false,
 			list:[],
 			searchKey:{
 				offset:0,
@@ -72,22 +76,35 @@ export default {
     	this.getlist();
     },
     methods:{
-    	getlist(){
+    	handleTopChange: function (status) {
+            this.topStatus = status;
+        },
+    	loadTop(){
+    		if (this.loadingmore) {
+			    return false
+			}
+			this.loadingmore = true
+    		setTimeout(()=>{
+    			this.$refs.loadmore.onTopLoaded();
+    			this.loadingmore = false
+    		},1500)
+    	},
+    	loadBottom(){
+    		//this.$refs.loadmore.onBottomLoaded();
+    	},
+    	async getlist(){
 	    	let params ={
 	    		offset:0,
 	    		limit:20,
 	    		tab:this.searchKey.tab,
 	    	}
-			ajax('get',this.$apiurl+'/news/list',params).then(rs=>{
-		  		if(rs && rs.code === 0 && rs.data){
-					this.loading = false;
-					this.list = rs.data;
-		  		}else{
-		  			this.$alert(rs.msg);
-		  		}
-		  	}).catch(e=>{
-		  		this.$alert('系统繁忙，请稍后重试！');
-		  	})
+			let rs = await fetch(this.$apiurl+'/news/list',params)
+	  		if(rs && rs.code === 0 && rs.data){
+				this.loading = false;
+				this.list = rs.data;
+	  		}else{
+	  			this.$alert(rs.msg);
+	  		}
     	},
     	// 获取不同tab的样式或者标题
     	getTabInfo(type, isClass){

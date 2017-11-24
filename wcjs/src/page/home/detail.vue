@@ -23,6 +23,28 @@
 	    			<a @click="showall">展开显示全文 <i class="zhankai"></i> </a>
 	    			<em></em>
 	    		</div>
+	    		<div class="spacer"></div>
+	    		<div class="others clear">
+		    		<div class="title">
+		    			<span>热门评论</span>
+		    		</div>
+		    		<ul>
+		    			<li class="comment" v-show="comments.length>0" v-for="item in comments">
+		    				<div class="head left" :class="{'mr':item.headmr}">
+	                			<img :src="item.headimgurl" width="100%" v-show="!item.headmr">
+	                			<div v-show="item.headmr"></div>
+	                		</div>
+	                		<div class="cm left">
+	                			<span class="nickname">{{item.nickname}}</span>
+	                			<span class="cmt">{{item.content | pinglun}}</span>
+	                			<span class="created">{{item.created}}</span>
+	                		</div>
+		    			</li>
+		    		</ul>
+		    		<div class="nocomment" v-show="comments.length==0">
+		    			暂无评论
+		    		</div>
+		    	</div>
 	    	</div>
 	    </div>
 	    <nv-top></nv-top>
@@ -35,15 +57,17 @@ import nvLoading from '@/components/loading.vue';
 import nvTop from '@/components/backtotop.vue';
 import {mapState} from 'vuex';
 import ajax from '@/config/ajax';
+import fetch from '@/config/fetch';
 
 export default {
 	name: 'detail',
 	data(){
 		return{
 			loading:true,
-			height:'height:2rem;',
+			height:'height:20rem;',
 			loadall:false,
 			detail:{},
+			comments:[],
 			id:0,
 		}
 	},
@@ -59,24 +83,35 @@ export default {
   		...mapState(['userinfo'])
   	},
     mounted(){
-    	let params ={
-    		tid:this.$route.params.id,
-    		uid:this.userinfo.uid,
-    	}
-		ajax('post',this.$apiurl+'/news/detail',params).then(rs=>{
-	  		if(rs && rs.code === 0 && rs.data){
+	  	this.getdetail();
+	  	this.pulljd();
+    },
+    methods:{
+    	async getdetail(){
+	    	let params ={
+	    		tid:this.$route.params.id,
+	    		uid:this.userinfo.uid?this.userinfo.uid:'',
+	    	}
+			let rs = await fetch(this.$apiurl+'/news/detail',params)
+			if(rs && rs.code === 0 && rs.data){
 					this.loading = false;
 					this.detail = rs.data;
 	  		}else{
 	  			this.$alert(rs.msg);
 	  		}
-	  	})
-    },
-    methods:{
+    	},
     	showall(){
     		this.loadall = true;
     		this.height = 'height:auto';
     	},
+    	async pulljd(){
+    // 		let rs = await fetch(this.$apiurl+'/news/getcomments',{tid:this.$route.params.id}).catch(e=>{
+    // 			console.log(e);
+    // 		});
+    // 		if(rs && rs.code === 0 && rs.data){
+				// this.comments = rs.data;
+	  	// 	}
+    	}
     },
     filters: {
     	getLastTimeStr(dateStr){
@@ -113,10 +148,8 @@ export default {
 			color:#999;
 		}
 		.article_content{
+			margin-bottom: .25rem;
 			overflow: hidden;
-			.img{
-				width: 100%;
-			}
 		}
 		.load_all{
             position: relative;
@@ -158,4 +191,77 @@ export default {
             background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,.8) 50%,rgba(255,255,255,.9) 55%,rgba(255,255,255,.93) 60%,rgba(255,255,255,.96) 65%,#FFF 100%);
         }
 	}
+	.others{
+    	.title{
+    		height: 2.5rem;
+    		line-height: 2.5rem;
+    		border-bottom: 1px solid @mbg;
+	    	span{
+	    		font-size: .85rem;
+	    		margin-left: .25rem;
+	    	}
+	    }
+	    .comment{
+    		width: 100%;
+    		height:4rem;
+    		display: block;
+    		border-bottom: 1px solid @mbg;
+    		padding-top: .5rem;
+    		.head{
+    			width: 4.75rem;
+    			height: 3rem;
+    			img{
+    				width: 2.5rem;
+    				height: 2.5rem;
+    				border-radius: 50%;
+    				display:block;
+    				margin: .25rem auto;
+    			}
+    			&.mr{
+    				div{
+	    				width: 2.5rem;
+	    				height: 2.5rem;
+	    				margin: .25rem auto;
+    					background-color: #000;
+    					opacity: .5;
+    				}
+    			}
+    		}
+    		.cm{
+    			width: 13.25rem;
+    			.nickname{
+    				width: 100%;
+					display: block;
+    				font-size: .6rem;
+    				color:#999;
+    				height: 1rem;
+    				line-height: 1rem;
+    			}
+    			.cmt{
+    				width: 100%;
+					display: block;
+    				font-size: .75rem;
+    				color:#666;
+    				height: 1rem;
+    				line-height: 1rem;
+    				overflow:hidden;
+    			}
+    			.created{
+    				width: 100%;
+					display: block;
+    				font-size: .6rem;
+    				color:#999;
+    				height: 1rem;
+    				line-height: 1rem;
+    			}
+    		}
+    	}
+    	.nocomment{
+    		text-align: center;
+    		font-size: .85rem;
+    		height: 3rem;
+    		line-height: 3rem;
+    		color:#999;
+    	}
+    }
 </style>
