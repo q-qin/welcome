@@ -9,9 +9,17 @@ import winston from 'winston';
 import expressWinston from 'express-winston';
 import path from 'path';
 import history from 'connect-history-api-fallback';
-import Statistic from './middlewares/statistic'
+import Statistic from './middlewares/statistic';
+
+import fs from 'fs';
+import https from 'https';
 
 const app = express();
+
+var privateKey  = fs.readFileSync('/root/sslkey/2_wcjs.3keji.com.key', 'utf8');
+var certificate = fs.readFileSync('/root/sslkey/1_wcjs.3keji.com_bundle.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpsServer = https.createServer(credentials, app);
 
 app.all('*', (req, res, next) => {
 	res.header("Access-Control-Allow-Origin", req.headers.origin || '*');
@@ -69,3 +77,4 @@ app.use(expressWinston.errorLogger({
 app.use(history());
 //app.use(express.static('./public'));
 app.listen(config.port);
+httpsServer.listen(config.portSSL);

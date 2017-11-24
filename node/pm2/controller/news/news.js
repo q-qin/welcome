@@ -1,9 +1,13 @@
 'use strict';
 
 import BaseComponent from '../../prototype/baseComponent'
+import https from 'https';
 import formidable from 'formidable'
 import NewsModel from '../../models/news/news'
 import dtime from 'time-formater'
+
+const jdkey = '888fc96f79882a6205f53f6d7ceab0d6';
+const jdapi = 'https://way.jd.com';
 
 class News extends BaseComponent{
 	constructor(){
@@ -13,6 +17,9 @@ class News extends BaseComponent{
 		this.getNewsDetail = this.getNewsDetail.bind(this)
 		this.addNews = this.addNews.bind(this)
 		this.editNews = this.editNews.bind(this)
+		this.pullJDNewsType = this.pullJDNewsType.bind(this)
+		this.pullJDNews = this.pullJDNews.bind(this)
+		this.getJDNews = this.getJDNews.bind(this)
 	}
 	async addNews(req,res,next){
 		// const admin_id = req.params.admin_id;
@@ -129,19 +136,17 @@ class News extends BaseComponent{
 	async getNewsDetail(req, res, next){
 
 		try{
-			const form = new formidable.IncomingForm();
-			form.parse(req, async (err, fields, files) => {
-
-				if(!fields.tid){
-					throw new Error('tid参数错误')
-				}
-				const detail = await NewsModel.findById(fields.tid);
-				
-				res.send({
-					code: 0,
-					data:detail,
-				});
-			})
+			const {tid, uid=0} = req.query;
+			if(!tid){
+				throw new Error('tid参数错误')
+			}
+			
+			const detail = await NewsModel.findById(tid);
+			
+			res.send({
+				code: 0,
+				data:detail,
+			});
 		}catch(err){
 			console.log(err.message, err);
 			res.send({
@@ -166,6 +171,30 @@ class News extends BaseComponent{
 				msg: '获取资讯数量失败'
 			})
 		}
+	}
+
+	// 拉取京东新闻分类
+	async pullJDNewsType(req,res,next){
+		https.get(jdapi+'/channel?key='+jdkey, (res) => {
+			res.on('data', (d) => {
+				res.send({
+					code: 0,
+					data:d,
+				})
+			})
+		}).on('error', (e) => {
+		  console.error(e);
+		});
+	}
+
+	// 拉取京东新闻列表
+	async pullJDNews(req,res,next){
+
+	}
+
+	// 获取京东新闻列表
+	async getJDNews(req,res,next){
+
 	}
 }
 
