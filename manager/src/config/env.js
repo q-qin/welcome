@@ -8,7 +8,7 @@
  */
 let baseUrl = ''; 
 let routerMode = 'history';
-let baseImgPath = 'http://r3.3keji.com/';
+let baseImgPath = 'http://www.3keji.com:4001/img/';
 
 if (process.env.NODE_ENV == 'development') {
 	baseUrl = 'http://www.3keji.com:4001';

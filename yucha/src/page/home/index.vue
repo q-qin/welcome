@@ -22,17 +22,11 @@
 				</mt-cell>
 	    	</div>
 			<ul class="items clear">
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶1号</span>
-				</li>
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶2号</span>
-				</li>
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶3号</span>
+				<li class="item left" v-for="item in hots">
+					<router-link :key="item.id" :to="{name:'detail',params:{id:item.id}}">
+						<img :src="item.img" height="100%">
+						<span>{{item.name}}</span>
+					</router-link>
 				</li>
 			</ul>
 			<div>
@@ -40,21 +34,17 @@
 				</mt-cell>
 			</div>
 			<ul class="items clear">
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶4号</span>
-				</li>
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶5号</span>
-				</li>
-				<li class="item left">
-					<img src="../../images/tea1.jpg" height="100%">
-					<span>奶茶6号</span>
+				<li class="item left" v-for="item in news">
+					<router-link :key="item.id" :to="{name:'detail',params:{id:item.id}}">
+						<img :src="item.img" height="100%">
+						<span>{{item.name}}</span>
+					</router-link>
 				</li>
 			</ul>
 			<div class="more">
-				— 查看全部饮品 —
+				<router-link to="list">
+					— 查看全部饮品 —
+				</router-link>
 			</div>
 			<ul class="footer clear">
 				<li class="item left" @click="jiamubiao">
@@ -85,6 +75,7 @@
 import nvHead from '@/components/header.vue';
 import nvLoading from '@/components/loading.vue';
 import ajax from '@/config/ajax'
+import products from '@/json/products.json'
 
 export default {
 	name: 'home',
@@ -93,6 +84,8 @@ export default {
 	  		loading:true,
 	   		jmbPop:false,
 	   		dpPop:false,
+	   		hots:[],
+	   		news:[],
 	  	}
 	},
 	components: {
@@ -100,11 +93,22 @@ export default {
   		nvLoading
 	},
   created(){
-        
+        if(!sessionStorage.getItem('tuiguang')){
+        	this.$router.push('/tuiguang');
+        }
   },
   async mounted(){
       	console.log('app init')
       	setTimeout(()=>{ this.loading = false; },100)
+
+      	products.forEach(n=>{
+      		if(n.type === 1){
+      			this.hots.push(n);
+      		}
+      		if(n.type === 2){
+      			this.news.push(n);
+      		}
+      	})
   },
   methods:{
   	jiamubiao(){
@@ -118,6 +122,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+	.mint-cell:last-child{
+		background-position:top;
+	}
 	.main{
 		width: 100vw;
 		height: 100vh;
@@ -151,8 +158,11 @@ export default {
 					right: 0;
 					text-align: center;
 					background: #000;
-					opacity: .5;
+					opacity: .7;
+					border-radius: .5rem;
+					font-size: .5rem;
 					margin: 0 .5rem 0 .5rem;
+					padding: .05rem 0 .05rem 0;
 					color:#fff;
 				}
 			}
@@ -160,18 +170,21 @@ export default {
 		.more{
 			text-align: center;
 			line-height: 3rem;
-			color:#999;
+			a{
+				color:#999;
+			}
 		}
 		.footer{
 			height: 2.5rem;
 			line-height: 2.5rem;
-			background: #fbf9f9;
-			position: absolute;
-			bottom: 0;
 			.item{
 				width: 6.25rem;
 				font-size: .75rem;
 				text-align: center;
+				color:#666;
+				a{
+				color:#666;
+				}
 			}
 		}
 	}

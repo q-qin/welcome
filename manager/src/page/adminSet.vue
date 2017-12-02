@@ -53,8 +53,8 @@
         },
         methods: {
             uploadImg(res, file) {
-                if (res.status == 1) {
-                    this.adminInfo.avatar = res.image_path;
+                if (res.code == 0) {
+                    this.adminInfo.avatar = res.data;
                 }else{
                     this.$message.error('上传图片失败！');
                 }

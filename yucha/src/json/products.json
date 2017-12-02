@@ -1,0 +1,36 @@
+[{
+    "id": 1,
+    "name": "霸气柠檬茶",
+    "type": 1,
+    "img": "http://r3.3keji.com/yucha/cha1.jpg"
+}, {
+    "id": 2,
+    "name": "香蕉火龙果奶昔",
+    "type": 1,
+    "img": "http://r3.3keji.com/yucha/cha2.jpg"
+}, {
+    "id": 3,
+    "name": "芝士静冈抹茶",
+    "type": 1,
+    "img": "http://r3.3keji.com/yucha/cha3.jpg"
+},{
+    "id": 4,
+    "name": "霸气橙子",
+    "type": 2,
+    "img": "http://r3.3keji.com/yucha/cha4.jpg"
+},{
+    "id": 5,
+    "name": "满杯红西柚",
+    "type": 2,
+    "img": "http://r3.3keji.com/yucha/cha5.jpg"
+},{
+    "id": 6,
+    "name": "整杯爆柠绿",
+    "type": 2,
+    "img": "http://r3.3keji.com/yucha/cha6.jpg"
+},{
+    "id": 7,
+    "name": "新鲜水果茶",
+    "type": 3,
+    "img": "http://r3.3keji.com/yucha/cha7.jpg"
+}]

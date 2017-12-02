@@ -7,6 +7,7 @@ var webpack = require('webpack')
 var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
+var autoOpenBrowser = !!config.dev.autoOpenBrowser
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -76,7 +77,8 @@ module.exports = server.listen(port, function(err) {
     console.log('Listening at ' + uri + '\n')
 
     // when env is testing, don't need open it
-    if (process.env.NODE_ENV !== 'testing') {
-        //opn(uri)
+    console.log(autoOpenBrowser,process.env.NODE_ENV)
+    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+        opn(uri)
     }
 })

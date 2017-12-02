@@ -10,16 +10,17 @@
 	    </nv-head>
 	    <nv-loading :loading="loading"></nv-loading>
 	    <div class="main" :class="{'fix-head':true}" v-show="!loading">
-	    	<mt-loadmore  :top-method="loadTop"  :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore" @top-status-change="handleTopChange" >
 	    	<ul class="posts-list" >
     			<router-link v-for="item in list" :key="item.id" :to="{name:'detail',params:{id:item.id}}">
-	    			<li >
+	    			<li class="clear">
 	    				<img :src="item.img" height="100%">
 	    				<span>{{item.name}}</span>
 	    			</li>
     			</router-link>
 	    	</ul>
-	    	</mt-loadmore>
+	    	<div class="nodata" v-show="list.length == 0">
+	    		暂无数据
+	    	</div>
 	    </div>
 	    <nv-top></nv-top>
 	</div>
@@ -31,7 +32,7 @@ import nvLoading from '@/components/loading.vue';
 import nvTop from '@/components/backtotop.vue';
 import {mapState} from 'vuex';
 import ajax from '@/config/ajax';
-import fetch from '@/config/fetch';
+import products from '@/json/products.json'
 
 export default {
 	name: 'a_detail',
@@ -40,41 +41,9 @@ export default {
 			loading:true,
 			allLoaded:false,
 			list:[],
-			hot:[{
-				id:1,
-				name:'奶茶1号',
-				img:require('../../images/tea1.jpg')
-			},{
-				id:2,
-				name:'奶茶2号',
-				img:require('../../images/tea1.jpg')
-			}],
-			new:[{
-				id:3,
-				name:'奶茶3号',
-				img:require('../../images/tea1.jpg')
-			},{
-				id:4,
-				name:'奶茶4号',
-				img:require('../../images/tea1.jpg')
-			}],
-			all:[{
-				id:1,
-				name:'奶茶1号',
-				img:require('../../images/tea1.jpg')
-			},{
-				id:2,
-				name:'奶茶2号',
-				img:require('../../images/tea1.jpg')
-			},{
-				id:3,
-				name:'奶茶3号',
-				img:require('../../images/tea1.jpg')
-			},{
-				id:4,
-				name:'奶茶4号',
-				img:require('../../images/tea1.jpg')
-			}],
+			hots:[],
+			news:[],
+			alls:[],
 			searchKey:{},
 		}
 	},
@@ -84,9 +53,18 @@ export default {
   		nvTop
   	},
     created(){
+  		this.alls = products;
 		this.searchKey.tab = this.$route.query.tab?this.$route.query.tab:'all';
     	this.getlist();
-        
+
+      	products.forEach(n=>{
+      		if(n.type === 1){
+      			this.hots.push(n);
+      		}
+      		if(n.type === 2){
+      			this.news.push(n);
+      		}
+      	})
     },
   	computed: {
   		
@@ -111,15 +89,29 @@ export default {
     		//this.$refs.loadmore.onBottomLoaded();
     	},
     	async getlist(){
+				this.$route.meta.title="全部饮品"
     		switch(this.searchKey.tab){
     			case 'hot':
-    				this.list = this.hot;
+    				this.list = this.hots;
+    				this.$route.meta.title="热销饮品"
     				break;
     			case 'new':
-    				this.list = this.new;
+    				this.list = this.news;
+    				this.$route.meta.title="新品上市"
     				break;
     			case 'all':
-    				this.list = this.all;
+    				this.list = this.alls;
+    				break;
+    			case 'tea':
+    				this.list = this.alls;
+    				this.$route.meta.title="特色奶茶"
+    				break;
+    			case 'coffee':
+    				this.list = [];
+    				this.$route.meta.title="经典咖啡"
+    				break;
+    			default:
+    				this.list = [];
     				break;
     		}
     		setTimeout(()=>{
@@ -150,7 +142,7 @@ export default {
 		width: 100vw;
 		height: 100vh;
 		&.fix-head{
-			margin-top: 2.2rem;
+			margin-top: 2.5rem;
 		}
 	}
 	.posts-list {
@@ -159,10 +151,11 @@ export default {
         	display: block;
         }
 	    li {
-	        margin: 0 .25rem .25rem .25rem;
-	        height: 15rem;
+	        margin: .25rem;
+	        height: 20rem;
         	overflow: hidden;
         	position: relative;
+        	border-radius: .15rem;
         	span{
         		position: absolute;
         		left: 0;
@@ -171,10 +164,14 @@ export default {
         		text-align: center;
         		display: block;
         		background: #000;
-        		opacity: .5;
+        		opacity: .7;
         		color:#fff;
         		line-height: 2rem;
         	}
 	    }
+	}
+	.nodata{
+		text-align: center;
+		line-height: 2.5rem;
 	}
 </style>

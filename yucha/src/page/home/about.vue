@@ -11,16 +11,20 @@
 	    <nv-loading :loading="loading"></nv-loading>
         <div class="main" :class="{'fix-head':true}" v-show="!loading">
 	        <dl class="about-info">
-	            <dt>关于我们：</dt>
+	            <dt>店铺地址：</dt>
 	            <dd>
-	                玉点奶茶味道好。店铺地址：曼哈顿广场
+	                曼哈顿广场
 	            </dd>
-	            <dt>作者：</dt>
+	            <dt>3公里内送茶上门：</dt>
 	            <dd>
-	                阿强
+	                13812786424
 	            </dd>
-	            <dt>当前版本</dt>
-	            <dd>V1.0</dd>
+	            <dt>地点坐标：</dt>
+	            <dd >
+	            	<div class="location">
+	            		
+	            	</div>
+	            </dd>
 	        </dl>
         </div>
     </div>
@@ -67,5 +71,11 @@
     	border-bottom: 1px solid #d5dbdb; }
   	.about-info a {
     	color: #42b983; 
+	}
+	.location{
+		width: 17.25rem;
+		height: 12.24rem;
+		background: url('../../images/location.png') no-repeat center center ;
+		background-size: 100%;
 	}
 </style>

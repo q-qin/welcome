@@ -10,9 +10,8 @@ const list = r => require.ensure([], () => r(require('@/page/home/list')), 'list
 // 关于我们
 const about = r => require.ensure([], () => r(require('@/page/home/about')), 'about')
 
-/*#####  账户相关  ####*/
-const login = r => require.ensure([], () => r(require('@/page/account/login')), 'login')
-const user = r => require.ensure([], () => r(require('@/page/account/user')), 'user')
+/*#####  推广相关  ####*/
+const tuiguang = r => require.ensure([], () => r(require('@/page/tuiguang/huadong')), 'tuiguang')
 
 export default [{
     path: '/',
@@ -25,30 +24,23 @@ export default [{
         path: '',
         component: home
     },{
-        name:'login',
+        name:'tuiguang',
         meta:{
-            title:'登录'
+            title:'推广页面'
         },
-        path: '/login',
-        component: login,
-    },{
-        name:'user',
-        meta:{
-            title:'用户中心'
-        },
-        path: '/user',
-        component: user,
+        path: '/tuiguang',
+        component: tuiguang,
     },{
         name:'list',
         meta:{
-            title:'奶茶列表'
+            title:'玉点喜茶列表'
         },
         path: '/list',
         component: list,
     },{
         name:'detail',
         meta:{
-            title:'奶茶详情'
+            title:'玉点喜茶详情'
         },
         path: '/detail/:id',
         component: detail,
