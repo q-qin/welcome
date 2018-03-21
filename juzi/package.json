@@ -1,12 +1,12 @@
 {
-  "name": "m.jdd.com",
+  "name": "juzi",
   "version": "1.0.0",
-  "description": "h5.cp.jdd.com",
+  "description": "juzi.3keji.com",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "shenfei",
+  "author": "q-qin",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.3",
