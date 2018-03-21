@@ -1,0 +1,38 @@
+@import (less, reference) "../../style/mixin.less";
+
+.record-nav-con{
+  height: 1.1rem;
+  position: relative;
+  .record-nav{
+    margin-top:.88rem;
+    height: 100%;
+    .flex;
+    background-color: #fff;
+    .nav-link{
+      .font(@font-size:.36rem,  @text-align:center);
+      flex: 1;
+      height: .6rem;
+      line-height: .6rem;
+      transition: color 300ms;
+    }
+    a:nth-of-type(1), a:nth-of-type(2){
+      border-right: 1px solid #ddd;
+    }
+    .active{
+      color: @base-color;
+    }
+  }
+
+  .nav-flag-bar{
+    .wh(1.3rem, .05rem);
+    border-radius: 1px;
+    background-color: @base-color;
+    position: absolute;
+    bottom: 0;
+    left: 17%;
+    margin-left: -.65rem;
+    transition: left 300ms;
+  }
+}
+
+
