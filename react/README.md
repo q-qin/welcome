@@ -1,18 +1,26 @@
-
-## 技术栈：
-  react + redux + webpack + react-router + ES6/7/8 + immutable
+# 基于react.js写的webapp [线上访问地址](http://react.3keji.com/)
 
 
-## 运行项目（nodejs 6.0+）
+### 安装
+
+项目地址：（`git clone`）
+
+```shell
+git clone https://github.com/q-qin/github.git
+```
+
+通过`npm`安装本地服务第三方依赖模块(需要已安装[Node.js](https://nodejs.org/))
 
 ```
- git clone https://github.com/q-qin/github.git
-
- cd react
-
- npm install
-  
- npm run dev
-
- npm run build （发布）
+npm install
 ```
+
+启动服务(http://localhost:3000)
+
+```
+npm run dev
+```
+
+发布代码
+```
+npm run build
