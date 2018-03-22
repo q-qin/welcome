@@ -11,7 +11,7 @@ class API extends Server{
     try{
       let rs = await this.axios('get', '/news/list', params); 
       if(rs && rs.code === 0){
-        return rs.data||[];
+        return rs;
       }else{
         let err = {
           tip: '获取列表数据失败',
@@ -35,7 +35,7 @@ class API extends Server{
     try{
       let rs = await this.axios('get', '/news/detail', params); 
       if(rs && rs.code === 0){
-        return rs.data||{};
+        return rs;
       }else{
         let err = {
           tip: '获取详情失败',
