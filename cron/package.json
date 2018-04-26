@@ -1,9 +1,10 @@
 {
-  "name": "goodnight",
+  "name": "crondemo",
   "version": "0.0.1",
-  "description": "Auto good night to girlfriend",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,9 +13,9 @@
   "author": "q-qin",
   "license": "MIT",
   "dependencies": {
-    "babel-register": "6.26.0",
-    "cron": "1.3.0",
-    "qrcode-terminal": "0.12.0",
-    "wechat4u": "0.7.6"
+    "babel-register": "^6.26.0",
+    "cron": "^1.3.0",
+    "qrcode-terminal": "^0.12.0",
+    "wechat4u": "^0.7.6"
   }
 }
