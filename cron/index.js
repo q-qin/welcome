@@ -42,31 +42,19 @@ bot.on('logout', () => {
 bot.on('contacts-updated', contacts => {
     if (!username) {
         // console.log('联系人数量: ', Object.keys(bot.contacts).length);
-        if (bot.Contact.getSearchUser('、ོ').length) {
-            username = bot.Contact.getSearchUser('、ོ')[0].UserName;
+        if (bot.Contact.getSearchUser('、').length) {
+            username = bot.Contact.getSearchUser('、')[0].UserName;
             console.log('获取目标用户成功: ', username);
         }
     }
 });
 
 /*
-* 每1s发一次微信
-*/
-new CronJob('* * * * * *', function () {
-    if (username) {
-        bot.sendMsg('每秒发一次，哟吼....', username)
-            .catch(err => {
-                bot.emit('send error', err);
-            });
-    }
-}, null, true, 'Asia/Shanghai');
-
-/*
-* 星期1-5 08:00-08:10 每60s发一次微信，喊你起床
+* 星期1-5 08:00-08:10 每60s发一次微信，喊起床
 */
 new CronJob('*/60 00-10 08 * * 1-5', function () {
     if (username) {
-        bot.sendMsg('世界上最好看的仙女，起床了没有，记得化一个美美的妆再出门哦....', username)
+        bot.sendMsg('早安....', username)
             .catch(err => {
                 bot.emit('send error', err);
             });
@@ -78,7 +66,7 @@ new CronJob('*/60 00-10 08 * * 1-5', function () {
 */
 new CronJob('00 15,30 11 * * 1-5', function () {
     if (username) {
-        bot.sendMsg('中午好，小考拉，午饭有没有乖乖吃啊？如果没有的话，我等下再问一遍....', username)
+        bot.sendMsg('午安....', username)
             .catch(err => {
                 bot.emit('send error', err);
             });
@@ -89,7 +77,7 @@ new CronJob('00 15,30 11 * * 1-5', function () {
 */
 new CronJob('00 00 23 * * *', function () {
     if (username) {
-        bot.sendMsg('美丽的仙女，要时时刻刻保养自己的美貌，好好睡个美容觉，醒来又是美美哒....', username)
+        bot.sendMsg('晚安....', username)
             .catch(err => {
                 bot.emit('send error', err);
             });
