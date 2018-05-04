@@ -1,74 +1,111 @@
 var path = require('path')
-var config = require('../config')
 var utils = require('./utils')
+var webpack = require('webpack')
+var config = require('../config')
+
+var glob = require('glob');
+//// 模块名称
+var project = 'activities';
+var entries =  utils.getMultiEntry('./src/'+config.moduleName+'/**/**/*.js'); // 获得入口js文件
+//var entries =  utils.getMultiEntry('./src/views/'+project+'/**/*.html'); // 获得入口js文件
+var chunks = Object.keys(entries);
+console.log(chunks)
+
+if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+var env = process.env.NODE_ENV
+console.log('current env:',env)
+
+// for development 
+if(env === 'development'){
+  var _assetsRoot = config.dev.assetsRoot
+  var _assetsPublicPath = config.dev.assetsPublicPath
+}
+// for testing
+if(env === 'test'){
+  var _assetsRoot = config.test.assetsRoot
+  var _assetsPublicPath = config.test.assetsPublicPath
+}
+// for production
+if(env === 'production'){
+  var _assetsRoot = config.build.assetsRoot
+  var _assetsPublicPath = config.build.assetsPublicPath
+}
+
 var projectRoot = path.resolve(__dirname, '../')
 
-var env = process.env.NODE_ENV
-    // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
-    // various preprocessor loaders added to vue-loader at the end of this file
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
-var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+var vueLoaderConfig = require('./vue-loader.conf')
 
-module.exports = {
-    entry: {
-        app: './src/main.js'
-    },
-    output: {
-        path: config.build.assetsRoot,
-        publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-        filename: '[name].js'
-    },
-    resolve: {
-        extensions: ['', '.js', '.vue', '.less', '.css', '.scss'],
-        fallback: [path.join(__dirname, '../node_modules')],
-        alias: {
-            'vue$': 'vue/dist/vue.common.js',
-            'src': path.resolve(__dirname, '../src'),
-            'assets': path.resolve(__dirname, '../src/assets'),
-            'components': path.resolve(__dirname, '../src/components'),
-            '@': path.resolve(__dirname, '../src'),
-        }
-    },
-    resolveLoader: {
-        fallback: [path.join(__dirname, '../node_modules')]
-    },
-    module: {
-        loaders: [{
-            test: /\.vue$/,
-            loader: 'vue'
-        }, {
-            test: /\.js$/,
-            loader: 'babel',
-            include: projectRoot,
-            exclude: /node_modules/
-        }, {
-            test: /\.json$/,
-            loader: 'json'
-        }, {
-            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            loader: 'url',
-            query: {
-                limit: 10000,
-                name: utils.assetsPath('img/[name].[ext]')
-            }
-        }, {
-            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url',
-            query: {
-                limit: 10000,
-                name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-            }
-        }]
-    },
-    vue: {
-        loaders: utils.cssLoaders({
-            sourceMap: useCssSourceMap
-        }),
-        postcss: [
-            require('autoprefixer')({
-                browsers: ['last 10 versions']
-            })
-        ]
-    }
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
 }
+
+var webpackConfig = {
+
+  entry:entries,
+  output: {
+    path: _assetsRoot,
+    filename: '[name].js',
+    publicPath: _assetsPublicPath
+  },
+  // externals:{
+  //   'vue': 'Vue',
+  //   'vue-router': 'VueRouter',
+  //   'vuex':'Vuex'
+  // },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components'),
+      '@': path.resolve(__dirname, '../src'),
+      'conf': process.env.NODE_ENV === 'production'?'@/assets/js/conf.js':'@/assets/js/conf-test.js',
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('img/[name].[ext]'),
+          publicPath:process.env.NODE_ENV === 'development'?'/':'/v2/',
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('fonts/[name].[ext]')
+        }
+      },
+      
+    ]
+  },
+  plugins: [
+	/*
+    // 提取公共模块
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendors', // 公共模块的名称
+      chunks: chunks,  // chunks是需要提取的模块
+      minChunks: 4 || chunks.length //公共模块被使用的最小次数。比如配置为3，也就是同一个模块只有被3个以外的页面同时引用时才会被提取出来作为common chunks。
+
+    }),*/
+   
+  ]
+}
+
+module.exports =  webpackConfig

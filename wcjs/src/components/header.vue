@@ -6,15 +6,12 @@
                     @click="showMenus">
             </div>
             <div class="nv-toolbar ">
-                <div class="toolbar-menu" v-if="showMenu"  @click="showMenus">
-                </div>
-                <div class="toolbar-nav" v-if="showBack"  @click="goback">
-                    <span class="sicon pre" ></span>
-                </div>
+                <i class="iconfont toolbar-menu" v-if="showMenu"  @click="showMenus">&#xe614;</i>
+                <i class="iconfont toolbar-nav" v-if="showBack"  @click="goback">&#xe6b0;</i>
                 <span v-text="pageName"></span>
-                <router-link to="/">
-                    <i class="icon-refresh"></i>
-                </router-link>
+                <a @click="refresh">
+                    <i class="iconfont icon-refresh">&#xe6f3;</i>
+                </a>
             </div>
         </header>
         <nv-menu :menu-toggle="menuToggle"
@@ -44,6 +41,9 @@
             },
             showMenus(){
                 this.menuToggle =!this.menuToggle;
+            },
+            refresh(){
+
             }
         },
         components: {
@@ -59,7 +59,7 @@
         bottom: 0;
         left: 0;
         background: rgba(0, 0, 0, 0.4);
-        z-index: 7;
+        z-index: 2;
     }
     #hd { 
         border-bottom: 1px solid #e8e8e8;
@@ -87,19 +87,17 @@
         }
     }
     .toolbar-menu{
-        width: 2.45rem;
-        height: 2.2rem;
+        line-height: 1rem;
         position: absolute;
-        background: url('../images/nav_icon.png') no-repeat center center;
-        background-size: .95rem .8rem;
+        font-size: .4rem;
+        padding: 0 .2rem;
+        color:#666;
         margin: 0;
-        z-index: 7;
-        top: 0;
-        left: 0;
+        z-index: 2;
     }
     .nv-toolbar {
         width: 100%;
-        height: 2.2rem;
+        height: 1rem;
         display: flex;
         align-items: center;
         position: relative;
@@ -107,48 +105,29 @@
             position: absolute;
             left:0;
             top:0;
-            height: 2.2rem;
+            line-height: 1rem;
             z-index: 1;
-            line-height: 2.3rem;
-            text-indent: 1.3rem;
-            font-size: .8rem;
+            line-height: 1rem;
+            padding: 0 .2rem;
+            font-size: .4rem;
             color: #666;
-            .sicon{
-                position: absolute;
-                top:.65rem;
-                left: .5rem;
-            }
         }
         &>span {
             display: block;
             text-align: center;
             height: 100%;
-            line-height: 2.2rem;
-            font-size: .8rem;
+            line-height: 1rem;
+            font-size: .3rem;
             width: 100%;
             position: relative;
             z-index: 0;
         }
-        .num {
-            background-color: #80bd01;
-            color: #fff;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            vertical-align: middle;
-            text-align: center;
-            border-radius: 50%;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            z-index: 10;
-        }
     }
     .icon-refresh{
-        width: 2.2rem;
-        height: 2.2rem;
+        line-height: 1rem;
         display: block;
-        background: url('../images/refresh.png') no-repeat center center;
-        background-size: .95rem .95rem;
+        font-size: .4rem;
+        padding: 0 .2rem;
+        color:#666;
     }
 </style>

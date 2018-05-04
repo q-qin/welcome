@@ -49,12 +49,12 @@
         margin: 0 24px;
         border-top: 1px solid #d4d4d4;
         overflow: hidden;
-        padding-top: 9%;
+        padding-top: .3rem;
         .item {
             display: block;
             font-size: 14px;
             font-weight: 200;
-            padding: 9% 0;
+            padding: .3rem 0;
             text-align: left;
             text-indent: 1px;
             line-height: 15px;

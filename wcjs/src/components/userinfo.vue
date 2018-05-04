@@ -24,17 +24,10 @@
         },
         methods: {
             goEnter() {
-                this.$router.push({
-                    name: 'login',
-                    query: {
-                        redirect: encodeURIComponent(this.$route.path)
-                    }
-                });
+				location.href = '/views/main/user.html#/login';
             },
             goUser() {
-                this.$router.push({
-                    name: 'user'
-                });
+				location.href = '/views/main/user.html#/user'
             }
         }
     };
@@ -42,23 +35,23 @@
 
 <style lang="less">
 	.user-info{
-		padding: .75rem;
+		padding: .3rem;
 	}
 	.login-no{
 		overflow: hidden;
-    	margin: .4rem .45rem;
+    	margin: .2rem;
 	}
 	.login-no > li{
 		float: right;
-	    height: 1.2rem;
-	    line-height: 1.2rem;
-	    padding-left: 1.7rem;
+	    height: .6rem;
+	    line-height: .6rem;
+	    padding-left: .8rem;
 	    position: relative;
 	}
 	.login-no > li:before{
-		width: 1.2rem;
-		height: 1.2rem;
-		content:' ';
+		width: .6rem;
+		height: .6rem;
+		content:'';
 		position:absolute;
 		top:0;
 		left: 0;
