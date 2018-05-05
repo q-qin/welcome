@@ -3,13 +3,13 @@
 		<!-- 全局header -->
 	    <nv-head ref="head"
 	            :show-head="true"
-	            :fix-head="false"
+	            :fix-head="true"
 	            :show-back="true"
 	            :show-menu="false"
 	            :page-name="$route.meta.title" >
 	    </nv-head>
 	    <nv-loading :loading="loading"></nv-loading>
-	    <div v-show="!loading">
+	    <div v-show="!loading" :class="{'fix-head':true}">
 	    	<div class="content" >
 	    		<h1 >{{detail.title}}</h1>
 	    		<div class="tt">

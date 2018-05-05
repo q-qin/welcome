@@ -27,7 +27,7 @@
 				location.href = '/views/main/user.html#/login';
             },
             goUser() {
-				location.href = '/views/main/user.html#/user'
+				location.href = '/views/main/user.html#/account'
             }
         }
     };

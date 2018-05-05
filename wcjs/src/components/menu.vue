@@ -2,11 +2,11 @@
     <section id="sideBar" class="nav-list" :class="{'show':menuToggle}">
     	<userInfo></userInfo>
         <section class="list-ul">
-            <router-link class="icon-quanbu iconfont item" :to="{'name':'list',query:{tab:'all'}}" >全部</router-link>
-            <router-link class="icon-hao iconfont item" :to="{'name':'list',query:{tab:'good'}}" >精华</router-link>
-            <router-link class="icon-fenxiang iconfont item" :to="{'name':'list',query:{tab:'share'}}" >分享</router-link>
-            <router-link class="icon-xiaoxi iconfont item " :to="{'name':'list',query:{tab:'bad'}}" >打假</router-link>
-            <router-link class="icon-about iconfont item line" :to="{'name':'about'}" >关于</router-link>
+            <a class="icon-quanbu iconfont item" href="/views/main/home.html#/list?tab=all"  >全部</a>
+            <a class="icon-hao iconfont item" href="/views/main/home.html#/list?tab=good" >精华</a>
+            <a class="icon-fenxiang iconfont item" href="/views/main/home.html#/list?tab=share" >分享</a>
+            <a class="icon-xiaoxi iconfont item " href="/views/main/home.html#/list?tab=bad" >打假</a>
+            <a class="icon-about iconfont item line" href="/views/main/home.html#/about" >关于</a>
         </section>
     </section>
 </template>

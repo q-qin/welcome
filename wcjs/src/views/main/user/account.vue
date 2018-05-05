@@ -4,17 +4,17 @@
 	    <nv-head ref="head"
 	            :show-head="true"
 	            :fix-head="true"
-	            :show-back="true"
-	            :show-menu="false"
+	            :show-back="false"
+	            :show-menu="true"
 	            :page-name="$route.meta.title" >
 	    </nv-head>
         <section  class="userinfo" :class="{'fix-head':true}">
             <div class="u-img" />
-            <p>
+            <div>
                 <p class="u-name" v-text="userInfo.username"></p>
                 <br/>
                 <p class="u-name red" >账户余额：￥{{userInfo.balance}}</p>
-            </p>
+            </div>
         </section>
         <section class="topics">
             <ul class="user-tabs">
@@ -54,7 +54,7 @@
                 if (!userInfo.id) {
                     this.$alert('缺少用户名参数');
                     this.$router.push({
-                        path: '/'
+                        path: '/account'
                     });
                     return false;
                 }
@@ -84,7 +84,7 @@
     	border-radius: 50%;
     	margin-top: 15px;
     	display: inline-block;
-    	background: url('../../images/user.png') no-repeat 50%; 
+    	background: url('../../../assets/images/user.png') no-repeat 50%; 
 	}
   	.userinfo .u-name {
     	color: #000; 

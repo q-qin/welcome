@@ -1,5 +1,7 @@
 import user from '@/views/main/user/user.vue'
 import login from '@/views/main/user/login.vue'
+import account from '@/views/main/user/account.vue'
+
 const routers = [{
         name: 'index',
         path: '/',
@@ -15,6 +17,14 @@ const routers = [{
             title: '登录'
         },
         component: login
+    },
+    {
+        name: 'account',
+        path: '/account',
+        meta: {
+            title: '用户中心'
+        },
+        component: account
     }
 ]
 

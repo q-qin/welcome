@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Lib from "@/assets/js/Lib";
-import store from '@/store/index.js'
+import store from '@/store/'
 import VueRouter from 'vue-router'
 import routes from '@/router/user.js'
 import '@/statistics/baidu.js' // 百度统计
@@ -25,6 +25,6 @@ if (window.sessionStorage.user) {
 
 
 new Vue({
-  router: router,
-  store:store
+  router,
+  store
 }).$mount('#app')
