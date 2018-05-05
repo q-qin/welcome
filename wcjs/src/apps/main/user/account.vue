@@ -4,8 +4,8 @@
 	    <nv-head ref="head"
 	            :show-head="true"
 	            :fix-head="true"
-	            :show-back="false"
 	            :show-menu="true"
+	            :show-home="true"
 	            :page-name="$route.meta.title" >
 	    </nv-head>
         <section  class="userinfo" :class="{'fix-head':true}">
@@ -39,7 +39,11 @@
                 balance: 0
             };
         },
-        mounted() {
+        components: {
+            nvHead
+        },
+        created() {
+            this.$Progress.start();
             this.getUser();
         },
         computed: {
@@ -51,6 +55,7 @@
             getUser() {
                 console.log(this.userInfo.id);
                 let userInfo = this.userInfo;
+                this.$Progress.finish();
                 if (!userInfo.id) {
                     this.$alert('缺少用户名参数');
                     this.$router.push({
@@ -60,15 +65,6 @@
                 }
             }
         },
-        watch: {
-        	// 切换页面
-            '$route' (to, from) {
-                this.getUser();
-            }
-        },
-        components: {
-            nvHead
-        }
     };
 </script>
 <style lang="less" scoped>

@@ -1,7 +1,7 @@
-import index from '@/views/main/home/index.vue'
-import list from '@/views/main/home/list.vue'
-import detail from '@/views/main/home/detail.vue'
-import about from '@/views/main/home/about.vue'
+import index from '@/apps/main/home/index.vue'
+import list from '@/apps/main/home/list.vue'
+import detail from '@/apps/main/home/detail.vue'
+import about from '@/apps/main/home/about.vue'
 
 const routers = [{
         name: 'index',

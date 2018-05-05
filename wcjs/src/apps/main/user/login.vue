@@ -5,7 +5,7 @@
 	            :show-head="true"
 	            :fix-head="true"
 	            :show-back="true"
-	            :show-menu="false"
+              :show-home="true"
 	            :page-name="$route.meta.title" >
 	    </nv-head>
         <section class="page-body">

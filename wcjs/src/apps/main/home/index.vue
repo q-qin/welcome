@@ -39,6 +39,7 @@ export default {
     setTimeout(()=>{
       this.$Progress.finish();
       this.loading= false;
+      this.$router.push('list')
     },1000)
   },
   methods: {}

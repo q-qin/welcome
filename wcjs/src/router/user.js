@@ -1,6 +1,6 @@
-import user from '@/views/main/user/user.vue'
-import login from '@/views/main/user/login.vue'
-import account from '@/views/main/user/account.vue'
+import user from '@/apps/main/user/user.vue'
+import login from '@/apps/main/user/login.vue'
+import account from '@/apps/main/user/account.vue'
 
 const routers = [{
         name: 'index',

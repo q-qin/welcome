@@ -26,7 +26,7 @@ import FastClick from 'fastclick';
 FastClick.attach(document.body);
 
 const options = {
-  color: '#d53c3e',
+  color: '#42b983',
   failedColor: '#874b4b',
   thickness: '2px',
 }

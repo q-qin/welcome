@@ -24,10 +24,10 @@
         },
         methods: {
             goEnter() {
-				location.href = '/views/main/user.html#/login';
+				location.href = '/apps/main/user.html#/login';
             },
             goUser() {
-				location.href = '/views/main/user.html#/account'
+				location.href = '/apps/main/user.html#/account'
             }
         }
     };

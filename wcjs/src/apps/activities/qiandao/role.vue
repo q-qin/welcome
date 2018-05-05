@@ -1,10 +1,15 @@
 <template>
   <div>
     <!-- 全局header -->
-    <nv-head ref="head" :show-head="false" :fix-head="false" page-name="活动规则">
+    <nv-head ref="head"
+	            :show-head="true"
+	            :fix-head="true"
+	            :show-back="true"
+	            :show-menu="false"
+	            :page-name="$route.meta.title" >
     </nv-head>
     <nv-loading :loading="loading"></nv-loading>
-    <div class="role" v-show="!loading">
+    <div class="role" :class="{'fix-head':true}" v-show="!loading">
       这是活动规则页面
     </div>
   </div>

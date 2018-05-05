@@ -6,6 +6,7 @@
 	            :fix-head="true"
 	            :show-back="false"
 	            :show-menu="true"
+	            :show-act="true"
 	            :page-name="$route.meta.title" v-show="!loading" >
 	    </nv-head>
 	    <nv-loading :loading="loading"></nv-loading>
@@ -65,7 +66,7 @@ export default {
   		nvTop
   	},
     created(){
-        
+        this.$Progress.start();
     },
   	computed: {
   		
@@ -87,6 +88,7 @@ export default {
 	  		}else{
 	  			this.$alert(rs.msg);
 	  		}
+			this.$Progress.finish();
     	},
     	// 获取不同tab的样式或者标题
     	getTabInfo(type, isClass){

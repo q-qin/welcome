@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
 	
   //网站模块名，例如 http://localhost:8089/module/app/index.html 中的 
-  //【views】，默认为views，修改这里的配置的同时，也要同时重命名/src/views的这个文件夹名称  
-  moduleName:'views', 
+  //【apps】，默认为apps，修改这里的配置的同时，也要同时重命名/src/apps的这个文件夹名称  
+  moduleName:'apps', 
   
   build: {
     env: require('./prod.env'),

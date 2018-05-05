@@ -1,12 +1,19 @@
 <template>
   <div>
     <!-- 全局header -->
-    <nv-head ref="head" :show-head="false" :fix-head="false" page-name="签到首页">
+    <nv-head ref="head"
+	            :show-head="true"
+	            :fix-head="true"
+	            :show-back="true"
+	            :show-menu="false"
+	            :page-name="$route.meta.title" >
     </nv-head>
     <nv-loading :loading="loading"></nv-loading>
-    <div class="qiandao" v-show="!loading">
-      这个是签到首页
-      <router-link to="/role">签到规则</router-link>
+    <div class="qiandao" :class="{'fix-head':true}" v-show="!loading">
+      签到赚金币，奖励拿不停~~~速来速来
+      <br>
+      <br>
+      <router-link to="/role" style="color:#ff0000">活动规则</router-link>
     </div>
   </div>
 </template>
@@ -19,7 +26,7 @@ import appcall from "@/assets/js/appcall"
     name: 'qiandao',
     data() {
       return {
-        loading: true
+        loading: false
       }
     },
     components: {
