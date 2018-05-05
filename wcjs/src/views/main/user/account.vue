@@ -54,7 +54,7 @@
                 if (!userInfo.id) {
                     this.$alert('缺少用户名参数');
                     this.$router.push({
-                        path: '/account'
+                        path: '/login'
                     });
                     return false;
                 }

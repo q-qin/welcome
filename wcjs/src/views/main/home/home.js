@@ -18,7 +18,10 @@ const router = new VueRouter({
 //   next();
 // })
 
-
+// 处理刷新的时候vuex被清空但是用户已经登录的情况
+if (window.sessionStorage.user) {
+  store.dispatch('saveuserinfo', JSON.parse(window.sessionStorage.user));
+}
 
 new Vue({
   router,
