@@ -33,5 +33,5 @@ const options = {
 
 Vue.use(VueProgressBar, options)
 Vue.use(VueLazyload,{
-  loading:require('@/assets/images/img_loading.png')
+  //loading:require('@/assets/images/img_loading.png')
 })

@@ -60,7 +60,7 @@
 		float:left;
 	}
 	.login-no .login:before{
-		background:url('../images/login_icon.png') no-repeat left center;
+		background:url('../assets/images/login_icon.png') no-repeat left center;
 		background-size: 100%;
 	}
 	.login-yes {
@@ -71,7 +71,7 @@
   	.login-yes .avertar {
     	width: 40px;
     	height: 40px;
-    	background: url('../images/user.png') no-repeat center center;
+    	background: url('../assets/images/user.png') no-repeat center center;
     	background-size: 40px 40px;
     	border-radius: 20px;
     	overflow: hidden;

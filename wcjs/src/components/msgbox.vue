@@ -152,39 +152,6 @@ export default {
   width: 5.8rem;
   margin: auto;
   position: relative;
-  .star {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url("../assets/images/pop_star.png") center center no-repeat;
-    background-size: 100%;
-  }
-}
-.msgbox-header-succ {
-  width: 260px;
-  height: 155px;
-  margin: auto;
-  background: url("../assets/images/pop_header_succ.png") center top no-repeat;
-  background-size: 100%;
-  position: relative;
-  .star {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url("../assets/images/pop_star_succ.png") center center
-      no-repeat;
-    background-size: 100%;
-  }
 }
 
 .msgbox-content {
@@ -197,14 +164,11 @@ export default {
   text-align: center;
   padding-left: 0;
   padding: .2rem 0;
-  font-size: 0.38rem;
-  &.succ {
-    color: #ff9422;
-  }
+  font-size: 0.4rem;
 }
 
 .msgbox-message {
-  color: #282a2f;
+  color: #666;
   margin: 0;
   text-align: center;
   font-size: 0.32rem;

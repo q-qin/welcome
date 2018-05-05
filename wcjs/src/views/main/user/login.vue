@@ -51,7 +51,7 @@
                 			avatar_url:'http://r3.3keji.com/11_a1.png',
                 			balance: 99
                     }
-                		window.sessionStorage.user = JSON.stringify(user);
+                    window.sessionStorage.user = JSON.stringify(user);
                 		this.$store.dispatch('saveuserinfo', user);
                 		this.$router.push({
                 			path: '/'
