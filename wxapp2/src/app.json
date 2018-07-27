@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/group/group",
+    "pages/final/final"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#151223",
+    "navigationBarTitleText": "多多冠军之路",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#151223"
+  }
+}

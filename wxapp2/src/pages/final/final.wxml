@@ -1,0 +1,396 @@
+<image class='bg' src='../../image/bg.png' mode='widthFix'></image>
+<block wx:if='{{!!hideCanvas}}'>
+  <scroll-view scroll-y class='container'>
+    <image class='tit' src='../../image/tit.png' mode='widthFix'></image>
+    <button class='random' size='mini' bindtap='randomSel'>随机</button>
+    <view class='content'>
+      <view class='grounp g8 gleft'>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='A1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.A1.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>A1</view>
+              <view class='team-name'>{{final16.A1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='B2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.B2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>B2</view>
+              <view class='team-name'>{{final16.B2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='C1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.C1.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>C1</view>
+              <view class='team-name'>{{final16.C1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='D2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.D2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>D2</view>
+              <view class='team-name'>{{final16.D2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='E1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.E1.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>E1</view>
+              <view class='team-name'>{{final16.E1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='F2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.F2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>F2</view>
+              <view class='team-name'>{{final16.F2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='G1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.G1.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-num'>G1</view>
+              <view class='team-name'>{{final16.G1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='H2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.H2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>H2</view>
+              <view class='team-name'>{{final16.H2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <view class='grounp g4 gleft'>
+        <view class='grounp4'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='A' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.A.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='B' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.B.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp4'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='C' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.C.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='D' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.D.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <view class='grounp g2 gleft'>
+        <view class='grounp2'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='A' bindtap='tapg2'>
+                <image mode='widthFix' src='../../image/{{final4.A.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='B' bindtap='tapg2'>
+                <image mode='widthFix' src='../../image/{{final4.B.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <view class='grounp g1 gcenter'>
+        <view class='grounp1'>
+          <view class='team gleft'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='A' bindtap='tapg1'>
+                <image mode='widthFix' src='../../image/{{final2.A.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view> 
+          </view>
+          <view class='team gright'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='B' bindtap='tapg1'>
+                <image mode='widthFix' src='../../image/{{final2.B.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp0'>
+          <view class='team'>
+            <view class='team-icon'>
+              <image mode='widthFix' src='../../image/{{final1.A.img||"blank"}}.png' data-id='A'></image> 
+              <view class='team-name'>
+                <view>{{final1.A.name||""}}</view>
+                <image class='champions' mode='widthFix' src='../../image/{{final1.A.img?"c2":"c"}}.png'></image> 
+              </view>
+            </view>
+            <view class='linepoint'></view>
+          </view>
+        </view>
+        <image class='bei' mode='widthFix' src='../../image/bei.png'></image>
+      </view>
+      <view class='grounp g2 gright'>
+        <view class='grounp2'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='C' bindtap='tapg2'>
+                <image mode='widthFix' src='../../image/{{final4.C.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='D' bindtap='tapg2'>
+                <image mode='widthFix' src='../../image/{{final4.D.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <view class='grounp g4 gright'>
+        <view class='grounp4'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='E' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.E.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='F' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.F.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp4'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='G' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.G.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='H' bindtap='tapg4'>
+                <image mode='widthFix' src='../../image/{{final8.H.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-name'></view>
+              <view class='linepoint'></view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <view class='grounp g8 gright'>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='B1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.B1.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>B1</view>
+              <view class='team-name'>{{final16.B1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='A2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.A2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>A2</view>
+              <view class='team-name'>{{final16.A2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='D1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.D1.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-num'>D1</view>
+              <view class='team-name'>{{final16.D1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='C2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.C2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>C2</view>
+              <view class='team-name'>{{final16.C2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='F1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.F1.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-num'>F1</view>
+              <view class='team-name'>{{final16.F1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='E2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.E2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>E2</view>
+              <view class='team-name'>{{final16.E2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+        <view class='grounp8'>
+          <view class='team ttop'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='H1' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.H1.img||"blank"}}.png'></image> 
+              </view>
+              <view class='team-num'>H1</view>
+              <view class='team-name'>{{final16.H1.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+          <view class='team tbottom'>
+            <view class='team-icon'>
+              <view class='team-img' data-id='G2' bindtap='tapg8'>
+                <image mode='widthFix' src='../../image/{{final16.G2.img||"blank"}}.png'></image>
+              </view>
+              <view class='team-num'>G2</view>
+              <view class='team-name'>{{final16.G2.name}}</view>
+            </view>
+            <view class='linebox'><view class='line'></view></view>
+          </view>
+        </view>
+      </view>
+      <!-- 指引 -->
+      <view class='guider' wx:if='{{guider}}'>
+        <view>点击国旗进行操作</view>
+        <view class='close' bindtap='closeGuider'>X</view>
+      </view>
+    </view>
+  </scroll-view>
+  <button class='submit {{!!submitok?"ok":""}}' bindgetuserinfo='tapSubmit' openType='getUserInfo'>完成</button>
+</block>
+
+<block wx:else>
+  <image class='result' mode='widthFix' src="{{imagePath}}"></image>
+  <view class='bottom-container'>
+    <button class='friend' bindtap='tapSaveImg' size='mini' wx:if='{{!!verflag}}'>
+      <!-- <image src='../../image/friend.png' mode="widthFix"></image> -->
+      <text>生成图片分享好友</text>
+      <view class='gss {{gssani}}'>让好友看到你的神预测</view>
+    </button>
+    <button class='share' open-type='share' size='mini'>
+      <!-- <image src='../../image/share.png' mode="widthFix"></image> -->
+      <text>转发到群</text>
+    </button>
+    <!-- <button class='refresh' bindtap='tapRefreash'>
+      <image src='../../image/refresh.png' mode="widthFix"></image>
+      <text>重选</text>
+    </button> -->
+  </view>
+  <block wx:if='{{!!verflag && !!intConfigs.moreFix.appId}}'>
+    <navigator class='moreFix' target="miniProgram" app-id="{{intConfigs.moreFix.appId}}" path="{{intConfigs.moreFix.path}}" open-type="navigate" bindtap='tapRecord' data-appid="{{intConfigs.moreFun.appId}}"><image mode="widthFix" src="{{intConfigs.moreFix.picUrl}}"></image></navigator>
+  </block>
+</block> 
+
+<canvas class='canvas' canvas-id='canvas'></canvas>
