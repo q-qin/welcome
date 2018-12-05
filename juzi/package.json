@@ -47,7 +47,6 @@
     "gulp-useref": "^1.2.0",
     "gulp-util": "^3.0.6",
     "is-relative-url": "^1.0.0",
-    "lodash": "^3.10.1",
     "node-useref": "^0.3.15",
     "through2": "^2.0.0",
     "vinyl-fs": "^1.0.0"
