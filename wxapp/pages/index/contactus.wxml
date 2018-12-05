@@ -1,8 +1,0 @@
-<!--pages/index/contactus.wxml-->
-<view id="contact">
-    <p class="introduce">商务合作</p>
-    <p class="introduce">感谢您对桔子的关注，如果您有任何的合作建议，可以及时跟我们联系，我们与您共谋发展，共同成长，欢迎有意的商家来电来函洽商。      </p>
-    <p class="introduce">联系地址: 苏州市工业园区若水路388号</p>
-    <p class="introduce"> QQ/微信: 290760616</p>
-    <p class="introduce">Email: admin@3keji.com</p>
-</view>

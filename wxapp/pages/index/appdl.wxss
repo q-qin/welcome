@@ -1,6 +1,0 @@
-/* pages/index/appdl.wxss */
-#appdl .introduce{
-    font-size: 28rpx;
-    padding:3% 3% 0 3%;
-    display:block;
-}
