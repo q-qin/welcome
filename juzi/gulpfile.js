@@ -5,7 +5,7 @@ var plugins = require('gulp-load-plugins')();
 
 gulp.task('server', function() {
     plugins.connect.server({
-        host: 'www.juzi001.com',
+        host: 'localhost',
         port: 8989,
         //root:['yyg/app/','yyg/','./','./../../','../'],
         //
@@ -18,7 +18,7 @@ gulp.task('server', function() {
 
 gulp.task('test', function() {
     plugins.connect.server({
-        host: 't.juzi001.com',
+        host: 'localhost',
         port: 9999,
         //root:['yyg/app/','yyg/','./','./../../','../'],
         //
