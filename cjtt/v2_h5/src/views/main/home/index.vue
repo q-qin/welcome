@@ -1,20 +1,23 @@
 <template>
   <div>
     <!-- 全局header -->
-    <nv-head ref="head" :show-head="false" :fix-head="false" page-name="$route.meta.title">
+    <nv-head ref="head" :show-head="false" :fix-head="false" page-name="首页">
     </nv-head>
     <div class="index" >
-      hello world
-      <p>与君相恋{{d}}天{{h}}小时{{m}}分钟{{s}}秒</p>
+      <ul class="list">
+        <li v-for="(item,$index) in list" :key="$index" :class="{'blur':$index%2==1}" @click="detail($index)">
+          <span class="title">{{item.date}}</span>
+        </li>
+      </ul>
+      <span class="total">合计:{{total}}</span>
     </div>
+    <div class="iconfont add" @click="addForm">&#xe658;</div>
   </div>
 </template>
 
 <script>
 import nvHead from "@/components/header.vue";
-
 import ajax from "@/assets/js/ajax";
-import appcall from "@/assets/js/appcall";
 
 export default {
   name: "index",
@@ -23,43 +26,41 @@ export default {
   },
   data() {
     return {
-      d:'',
-      h:'',
-      m:'',
-      s:'',
+      list:[
+        {date:'2018-01-01'},
+        {date:'2018-01-02'},
+        {date:'2018-01-03'},
+        {date:'2018-01-04'},
+        {date:'2018-01-05'},
+        {date:'2018-02-01'},
+        {date:'2018-02-02'},
+        {date:'2018-02-03'},
+        {date:'2018-02-04'},
+        {date:'2018-02-05'},
+        {date:'2018-01-05'},
+        {date:'2018-02-01'},
+        {date:'2018-02-02'},
+        {date:'2018-02-03'},
+        {date:'2018-02-04'},
+        {date:'2018-02-05'}
+      ],
+      total:100,
     };
   },
   mounted() {
     try {  
       window.console &&
         window.console.log &&
-        (console.log(`%c❤ Front-end ? => joinUs() %c http://www.mokasz.com/job/ `,"color:#c30005",'font-size:15px;color:#009a61;text-shadow: 0 0 3px #009a61;'));
+        (console.log(`%c❤ Front-end ? => joinUs() %c http://www.3keji.com/ `,"color:#c30005",'font-size:15px;color:#009a61;text-shadow: 0 0 3px #009a61;'));
     } catch (e) {}
 
-    this.timer();
-    setInterval(this.timer, 1000);
   },
   methods: {
-    timer(){
-        var start = new Date(2018, 1, 7);// 2018.1.7
-        var t = new Date() - start;
-        var h = ~~(t / 1000 / 60 / 60 % 24);
-        if (h < 10) {
-            h = "0" + h;
-        }
-        var m = ~~(t / 1000 / 60 % 60);
-        if (m < 10) {
-            m = "0" + m;
-        }
-
-        var s = ~~(t / 1000 % 60);
-        if (s < 10) {
-            s = "0" + s;
-        }
-        this.d = ~~(t / 1000 / 60 / 60 / 24);
-        this.h = h;
-        this.m = m;
-        this.s = s;
+    addForm(){
+      this.$router.push('/form')
+    },
+    detail(id){
+      this.$router.push('/detail/'+id)
     }
   }
 };
@@ -69,7 +70,38 @@ export default {
 @import "../../../assets/css/mixin";
 .index {
   font-size: 0.34rem;
-  text-align: center;
-  line-height: 2rem;
+  .title{
+    .wh(7.5rem);
+    line-height: 1rem;
+    display: block;
+    text-align: left;
+    padding-left: .3rem;
+  }
+  .list li{
+    text-align: center;
+    line-height: .8rem;
+    border-bottom: 1px solid #f1f1f1;
+    &.blur{
+      background: #f1f1f1;
+    }
+  }
+  .total{
+    text-align: right;
+    display: block;
+    line-height: 1rem;
+    padding-right: .3rem;
+  }
 }
+  .add{
+    position: fixed;
+    bottom: .5rem;
+    right: .5rem;
+    .wh(1rem,1rem);
+    border-radius: 100%;
+    border:1px solid #333;
+    text-align: center;
+    color:#333;
+    line-height: 1rem;
+    font-size: .6rem;
+  }
 </style>

@@ -11,7 +11,7 @@
         <span class="balanceTip">零钱余额（元）</span>
         <!-- <span class="balance">{{balance | currency('')}}</span> -->
         <span class="balance" ref="balance"></span>
-        <button class="right withdraw" @click="jump('withdraw','提现')">提现</button>
+        <!-- <button class="right withdraw" @click="jump('withdraw','提现')">提现</button> -->
       </div>
       <div class="middle">
         <div class="income">

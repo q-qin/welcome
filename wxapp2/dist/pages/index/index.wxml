@@ -1,0 +1,338 @@
+<image class='bg' src='../../image/bg.png' mode='widthFix'></image>
+<scroll-view scroll-y class='container'>
+  <image class='tit' src='../../image/tit.png' mode='widthFix'></image>
+  <view class='content'>
+    <view class='grounp g8 gleft'>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode="widthFix" src="" />
+            <view class='team-num'>A1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月1日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>B2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>C1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>6月30日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>D2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>E1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月2日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>F2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>G1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月3日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>H2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+    <view class='grounp g4 gleft'>
+      <view class='grounp4'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode="widthFix" src="" />
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月6日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp4'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月7日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+    <view class='grounp g2 gleft'>
+      <view class='grounp2'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月11日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+    <view class='grounp g1 gcenter'>
+      <view class='grounp1'>
+        <view class='team gleft'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+           <view class='linebox'><view class='line'></view></view> 
+        </view>
+        <view class='time'>7月14日</view>
+        <view class='team gright'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp0'>
+        <view class='team'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'>
+              <view></view>
+              <image class='champions' mode='widthFix' src='../../image/c2.png'></image> 
+            </view>
+          </view>
+          <view class='linepoint'></view>
+        </view>
+      </view>
+      <image class='bei' mode='widthFix' src='../../image/bei.png'></image>
+    </view>
+    <view class='grounp g2 gright'>
+      <view class='grounp2'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月12日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+    <view class='grounp g4 gright'>
+      <view class='grounp4'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月7日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp4'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月8日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-name'></view>
+            <view class='linepoint'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+    <view class='grounp g8 gright'>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>B1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月1日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>A2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>D1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月2日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>C2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>F1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月3日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>E2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+      <view class='grounp8'>
+        <view class='team ttop'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image> 
+            <view class='team-num'>H1</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+        <view class='time'>7月4日</view>
+        <view class='team tbottom'>
+          <view class='team-icon'>
+            <image mode='widthFix' src=''></image>
+            <view class='team-num'>G2</view>
+            <view class='team-name'></view>
+          </view>
+          <view class='linebox'><view class='line'></view></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <web-view src="https://mp.weixin.qq.com/"></web-view> -->
+  <view class='btnbox'>
+    <form report-submit="true" bindsubmit="tapBegin">
+      <button class='begin' form-type="submit">开始预测</button>
+    </form>
+    <block wx:if='{{!!verflag && !!intConfigs.moreFun.appId}}'>
+      <navigator class='moreFun' target="miniProgram" app-id="{{intConfigs.moreFun.appId}}" path="{{intConfigs.moreFun.path}}" open-type="navigate" bindtap='tapRecord' data-appid="{{intConfigs.moreFun.appId}}">更多好玩</navigator>
+    </block>
+    <block wx:if='{{!!verflag && !!intConfigs.moreAd.appId}}'>
+      <navigator class='moreAd' target="miniProgram" app-id="{{intConfigs.moreAd.appId}}" path="{{intConfigs.moreAd.path}}" open-type="navigate" bindtap='tapRecord' data-appid="{{intConfigs.moreFun.appId}}"><image mode="widthFix" src="{{intConfigs.moreAd.picUrl}}" ></image></navigator>
+    </block>
+    <block wx:if='{{!!verflag && !!intConfigs.wxad}}'>
+      <view class='wxad'>
+        <ad unit-id="{{intConfigs.wxad}}"></ad>
+      </view>
+    </block>
+  </view>
+  <block wx:if='{{!!verflag && !!intConfigs.moreFix.appId}}'>
+    <navigator class='moreFix' target="miniProgram" app-id="{{intConfigs.moreFix.appId}}" path="{{intConfigs.moreFix.path}}" open-type="navigate" bindtap='tapRecord' data-appid="{{intConfigs.moreFun.appId}}"><image mode="widthFix" src="{{intConfigs.moreFix.picUrl}}"></image></navigator>
+  </block>
+</scroll-view>

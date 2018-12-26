@@ -7,7 +7,7 @@
             'no-fix':!fixHead}">
             <div class="nv-toolbar ">
                 <div class="toolbar-nav"  @click="goback">
-                    <i class="iconfont" >&#xe697;</i>
+                    <i class="iconfont" >&#xe6b0;</i>
                 </div>
                 <span v-text="pageName"></span>
                 <a href="/"></a>

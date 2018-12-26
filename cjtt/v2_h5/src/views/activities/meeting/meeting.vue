@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="content clear">
-          <div class="left" @click="Jump(2,'砸蛋')">
+          <!-- <div class="left" @click="Jump(2,'砸蛋')">
             <div class="rocker">
               <div class="egg">
                 <img src="../../../assets/images/meeting/meet_egg.png">
@@ -39,8 +39,8 @@
               </div>
               <button class="btn">立即砸蛋</button>
             </div>
-          </div>
-          <div class="right" @click="Jump(3,'抽奖')">
+          </div> -->
+          <div class="left" @click="Jump(3,'抽奖')">
             <div class="rocker">
               <div class="egg_coin">
                 <img src="../../../assets/images/meeting/meet_coin.png">
@@ -54,7 +54,7 @@
               <button class="btn">立即抽奖</button>
             </div>
           </div>
-          <div class="left last" @click="Jump(4,'骰子')">
+          <div class="right" @click="Jump(4,'骰子')">
             <div class="rocker">
               <div class="egg_sai">
                 <img src="../../../assets/images/meeting/meet_saizi.png">
@@ -68,7 +68,7 @@
               <button class="btn">立即掷骰</button>
             </div>
           </div>
-          <div class="right last">
+          <div class="left last">
             <div class="rocker">
               <div class="gray">
                 更多奖励
@@ -279,6 +279,17 @@
                 height: 100%;
               }
             }
+            .egg_coin {
+              position: absolute;
+              left: 50%;
+              top: -0.41rem;
+              margin-left: -0.775rem;
+              width: 1.55rem;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
             .black {
               color: #333;
               font-size: 0.34rem;
@@ -335,6 +346,17 @@
               top: -0.4rem;
               margin-left: -0.685rem;
               width: 1.37rem;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .egg_sai {
+              position: absolute;
+              left: 50%;
+              top: -0.49rem;
+              margin-left: -1rem;
+              width: 2rem;
               img {
                 width: 100%;
                 height: 100%;
