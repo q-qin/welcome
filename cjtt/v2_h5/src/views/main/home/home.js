@@ -3,8 +3,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from '@/router/home.js'
 // import '@/statistics/baidu.js' // 百度统计
+import Vonic from 'vonic';
 
 Vue.use(VueRouter)
+Vue.use(Vonic)
 
 const router = new VueRouter({
   routes: routes
@@ -14,10 +16,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title + " -  微记账";
   }
-  /**
-   * 百度统计设置
-   * [资讯详情，视频详情，新手课堂]
-   */
+
   next();
 })
 

@@ -62,6 +62,7 @@ var webpackConfig = {
       'components': path.resolve(__dirname, '../src/components'),
       '@': path.resolve(__dirname, '../src'),
       'conf': process.env.NODE_ENV === 'production'?'@/assets/js/conf.js':'@/assets/js/conf-test.js',
+      'vonic':'vonic/src/vonic.js'
     }
   },
   module: {
@@ -74,7 +75,11 @@ var webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        exclude: /(node_modules|bower_components)/,
+        query: {
+            presets: ['es2015']
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -105,10 +110,6 @@ var webpackConfig = {
       minChunks: 4 || chunks.length //公共模块被使用的最小次数。比如配置为3，也就是同一个模块只有被3个以外的页面同时引用时才会被提取出来作为common chunks。
 
     }),*/
-    // new webpack.ProvidePlugin({
-    //     jQuery: "jquery",
-    //     $: "jquery"
-    // })
   ]
 }
 

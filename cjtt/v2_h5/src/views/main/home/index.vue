@@ -1,17 +1,23 @@
 <template>
   <div>
-    <!-- 全局header -->
-    <nv-head ref="head" :show-head="false" :fix-head="false" page-name="首页">
-    </nv-head>
-    <div class="index" >
-      <ul class="list">
-        <li v-for="(item,$index) in list" :key="$index" :class="{'blur':$index%2==1}" @click="detail($index)">
-          <span class="title">{{item.date}}</span>
-        </li>
-      </ul>
-      <span class="total">合计:{{total}}</span>
+    <div class="page " :class="{'has-navbar':false}">
+      <!-- 全局header -->
+      <nv-head ref="head" :show-head="false" :fix-head="false" page-name="首页">
+      </nv-head>
+      <div class="page-content">
+        <!-- 页面内容 -->
+        <md-button class="button button-positive">click Me</md-button>
+        <div class="index" >
+          <ul class="list">
+            <li v-for="(item,$index) in list" :key="$index" :class="{'blur':$index%2==1}" @click="detail($index)">
+              <span class="title">{{item.date}}</span>
+            </li>
+          </ul>
+          <span class="total">合计:{{total}}</span>
+        </div>
+        <div class="iconfont add" @click="addForm">&#xe658;</div>
+      </div>
     </div>
-    <div class="iconfont add" @click="addForm">&#xe658;</div>
   </div>
 </template>
 
@@ -22,7 +28,7 @@ import ajax from "@/assets/js/ajax";
 export default {
   name: "index",
   components: {
-    nvHead
+    nvHead,
   },
   data() {
     return {
@@ -46,6 +52,11 @@ export default {
       ],
       total:100,
     };
+  },
+  async created(){
+    $toast.show('这是一个提示', 3000).then(() => {
+      console.log('toast hide')
+    })
   },
   mounted() {
     try {  
