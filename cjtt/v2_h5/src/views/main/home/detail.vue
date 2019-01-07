@@ -1,49 +1,53 @@
 <template>
-  <div>
-    <!-- 全局header -->
-    <nv-head ref="head" :show-head="true" :fix-head="false" page-name="查看详情">
-    </nv-head>
-    <div class="detail" >
-        <ul>
-            <li>
-                <span class="name">时间：</span>
-                <label >2018-01-01</label>
-            </li>
-            <li>
-                <span class="name">产品：</span>
-                <label >ps</label>
-            </li>
-            <li>
-                <span class="name">数量(个)：</span>
-                <label >100</label>
-            </li>
-            <li >
-                <span class="name">进货价(元)：</span>
-                <label >100</label>
-            </li>
-            <li >
-                <span class="name">出货价(元)：</span>
-                <label >150</label>
-            </li>
-            <li >
-                <span class="name">支出费用(元)：</span>
-                <label >30</label>
-            </li>
-            <li >
-                <span class="name">备注：</span>
-                <label >请吃饭</label>
-            </li>
-            <li >
-                <span class="name">销售额(元)：</span>
-                <label >100</label>
-            </li>
-            <li >
-                <span class="name">利润(元)：</span>
-                <label >50</label>
-            </li>
-        </ul>
+    <div class="page " :class="{'has-navbar':true}">
+      <div class="page-content">
+        <!-- header -->
+        <von-header theme="light" v-if="true">
+            <button class="button button-icon ion-ios-arrow-back" slot="left" @click="$router.back('/')"></button>
+            <span slot="title">查看详情</span>
+        </von-header>
+        <div class="detail" >
+            <ul>
+                <li class="item">
+                    <span class="table-cell">时间：</span>
+                    <span class="table-cell">2018-01-01</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">产品：</span>
+                    <span class="table-cell">ps</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">数量(个)：</span>
+                    <span class="table-cell" >100</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">进货价(元)：</span>
+                    <span class="table-cell" >100</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">出货价(元)：</span>
+                    <span class="table-cell" >150</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">支出费用(元)：</span>
+                    <span class="table-cell" >30</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">备注：</span>
+                    <span class="table-cell" >请吃饭</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">销售额(元)：</span>
+                    <span class="table-cell" >100</span>
+                </li>
+                <li class="item">
+                    <span class="table-cell">利润(元)：</span>
+                    <span class="table-cell" >50</span>
+                </li>
+            </ul>
+        </div>
+      </div>
     </div>
-</div>
 </template>
 <script>
 import nvHead from "@/components/header.vue";
@@ -63,18 +67,9 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../../../assets/css/mixin";
-.detail{
-    font-size: .34rem;
-    ul li {
-        line-height: 1rem;
-        border-bottom: 1px solid #eee;
-        span{
-            .wh(3rem);
-            display: inline-block;
-            text-align: right;
-        }
-    }
+.detail ul .item span:first-child{
+    .wh(2rem);
+    text-align: right;
 }
-
 </style>
 

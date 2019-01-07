@@ -1,66 +1,46 @@
 <template>
-  <div>
-    <!-- 全局header -->
-    <nv-head ref="head" :show-head="true" :fix-head="false" page-name="添加信息">
-    </nv-head>
-    <div class="form" >
-        <ul>
-            <li >
-                <span class="name">时间：</span>
-                <input type="text" placeholder="如2018-01-01">
-            </li>
-            <li >
-                <span class="name">产品：</span>
-                <input type="text" placeholder="ps pvc 等">
-            </li>
-            <li >
-                <span class="name">数量(个)：</span>
-                <input type="text" placeholder="" v-model="mount">
-            </li>
-            <li >
-                <span class="name">进货价(元)：</span>
-                <input type="text" placeholder="" v-model="inPrice">
-            </li>
-            <li >
-                <span class="name">出货价(元)：</span>
-                <input type="text" placeholder="" v-model="outPrice">
-            </li>
-            <li >
-                <span class="name">支出费用(元)：</span>
-                <input type="text" placeholder="" v-model="otherOut">
-            </li>
-            <li >
-                <span class="name">备注：</span>
-                <input type="text" placeholder="备注信息，选填">
-            </li>
-            <li >
-                <span class="name">销售额(元)：</span>
-                <label>{{mount * outPrice}}</label>
-            </li>
-            <li >
-                <span class="name">利润(元)：</span>
-                <label>{{mount * (outPrice - inPrice) - otherOut}}</label>
-            </li>
-        </ul>
-        <button class="submit">保存</button>
+    <div class="page " :class="{'has-navbar':true}">
+      <div class="page-content">
+        <!-- header -->
+        <von-header theme="light" v-if="true">
+            <button class="button button-icon ion-ios-arrow-back" slot="left" @click="$router.back('/')"></button>
+            <span slot="title">添加信息</span>
+        </von-header>
+        <div class="item item-divider">
+            基本信息
+        </div>
+        <datepicker v-model="inputTime" label="时间" date-format="yyyy-mm-dd"></datepicker>
+        <von-input type="text" v-model="prodName" placeholder="PS / PVC 等" label="产品"></von-input>
+        <von-input type="text" v-model="prodMount" placeholder="单位（个）" label="数量"></von-input>
+        <von-input type="text" v-model="inPrice" placeholder="单位（元）" label="进货价"></von-input>
+        <von-input type="text" v-model="outPrice" placeholder="单位（元）" label="出货价"></von-input>
+        <von-input type="text" v-model="otherOut" placeholder="其他开支" label="支出费用"></von-input>
+        <von-input type="text" v-model="prodMemo" placeholder="备注" label="备注"></von-input>
+        <div class="item item-divider">
+            销售额：{{prodMount * outPrice}} | 利润：{{prodMount * (outPrice - inPrice) - otherOut}}
+        </div>
+        <md-button class="button button-balanced button-block">
+            保存
+        </md-button>
+      </div>
     </div>
-  </div>
 </template>
 <script>
-import nvHead from "@/components/header.vue";
 import ajax from "@/assets/js/ajax";
 
 export default {
     name:'form',
     components: {
-        nvHead
     },
     data(){
         return {
-            mount:'',
+            inputTime:'2019-01-07',
+            prodName:'',
+            prodMount:'',
             inPrice:'',
             outPrice:'',
             otherOut:'',
+            prodMemo:'',
         }
     },
     methods:{
