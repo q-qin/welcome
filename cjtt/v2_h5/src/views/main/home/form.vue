@@ -19,7 +19,7 @@
         <div class="item item-divider">
             销售额：{{prodMount * outPrice}} | 利润：{{prodMount * (outPrice - inPrice) - otherOut}}
         </div>
-        <md-button class="button button-balanced button-block">
+        <md-button class="button button-balanced button-block btnSave" @click.native="save">
             保存
         </md-button>
       </div>
@@ -27,6 +27,7 @@
 </template>
 <script>
 import ajax from "@/assets/js/ajax";
+import { setTimeout } from 'timers';
 
 export default {
     name:'form',
@@ -44,37 +45,27 @@ export default {
         }
     },
     methods:{
-
+        save(){
+            $loading.show('处理中...',3000)
+            setTimeout(() => {
+                $loading.hide()
+                $dialog.alert({
+                    title: '提示',
+                    content: '保存成功',
+                    okTheme: 'positive'
+                }).then(ok=>{
+                    this.$router.go(-1);
+                })
+            }, 2000)
+        },
     }
 }
 </script>
 <style lang="less" scoped>
 @import "../../../assets/css/mixin";
-.form{
-    font-size: .34rem;
-    ul li {
-        line-height: 1rem;
-        border-bottom: 1px solid #eee;
-        span{
-            .wh(3rem);
-            display: inline-block;
-            text-align: right;
-        }
-        input{
-            font-size: .34rem;
-
-        }
-    }
-    .submit{
-        line-height: 1rem;
-        background: #c30005;
-        color:#fff;
-        text-align: center;
-        display: block;
-        width: 7.5rem;
-        font-size: .4rem;
-        margin-top: .2rem;
-    }
+.btnSave{
+    width: 80%;
+    margin: 0 auto;
 }
 
 </style>

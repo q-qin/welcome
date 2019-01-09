@@ -2,9 +2,11 @@
     <div class="page " :class="{'has-navbar':true}">
       <div class="page-content">
         <!-- header -->
-        <von-header theme="light" v-if="true">
+        <von-header theme="light" v-if="true" >
           <span slot="title">首页</span>
+          <button class="button button-icon ion-navicon" slot="right" @click="toggleSidebarRight"></button>
         </von-header>
+
         <!-- 页面内容 -->
         <scroll class="page-content"
             :on-refresh="onRefresh"
@@ -15,13 +17,23 @@
 
           <div v-if="infiniteCount >= 2" slot="infinite" class="text-center">没有更多数据</div>
         </scroll>
-        <md-button class="button button-balanced button-fab option" @click.native="add">
+        <md-button class="button button-balanced button-fab btnOption" @click.native="add">
           <i class="icon ion-android-add"></i>
         </md-button>
-        <md-button class="button button-positive button-fab funnel" @click.native="showFilter">
-          <i class="icon ion-android-funnel"></i>
-        </md-button>
-        <div v-if="filterShow"></div>
+        <div class="siderBar" ref="sidebarRight" :class="{'on':siderBarShow}" @click="toggleSidebarRight" >
+          <div class="content" @click.stop>
+            <div class="ctitle">
+                通过时间过滤
+            </div>
+            <datepicker v-model="startDate" label="开始时间" date-format="yyyy-mm-dd"></datepicker>
+            <div style="height:10px;"></div>
+            <datepicker v-model="endDate" label="结束时间" date-format="yyyy-mm-dd"></datepicker>
+            
+            <md-button class="button button-balanced btnOK">
+                确定
+            </md-button>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -36,15 +48,16 @@ export default {
     return {
       items:[],
       infiniteCount: 0,
-      startDate:'',
-      endDate:'',
-      filterShow:false,
+      startDate:'2019-01-01',
+      endDate:'2019-01-05',
+      siderBarShow:false,
+      month:1,
     };
   },
   async created(){
     this.$Progress.start();
-    for (let i = 1; i <= 20; i++) {
-      this.items.push(i + ' - stay floosh stay hungry.')
+    for (let i = 30; i >= 1; i--) {
+      this.items.push('2019-'+(this.month<10?'0'+this.month:this.month)+'-'+(i<10?'0'+i:i))
     }
     this.top = 1
     this.bottom = 20
@@ -65,15 +78,16 @@ export default {
 
   },
   methods: {
-    showFilter(){
-      this.filterShow = !this.filterShow;
+    toggleSidebarRight(){
+      this.siderBarShow= !this.siderBarShow;
     },
     onRefresh(done) {
       setTimeout(() => {
-        let start = this.top - 1
-        for (let i = start; i > start - 10; i--) {
-          this.items.splice(0, 0, i + ' - keep walking, be 2 with you.')
-        }
+        $toast.show('刷新成功')
+        // let start = this.top - 1
+        // for (let i = start; i > start - 10; i--) {
+        //   this.items.splice(0, 0, i + ' - keep walking, be 2 with you.')
+        // }
         this.top = this.top - 10;
 
         done()
@@ -84,8 +98,11 @@ export default {
       setTimeout(() => {
         if (this.infiniteCount < 2) {
           let start = this.bottom + 1
-          for (let i = start; i < start + 10; i++) {
-            this.items.push(i + ' - keep walking, be 2 with you.')
+          this.month +=1;
+          // for (let i = start; i < start + 10; i++) {
+            // this.items.push(i + ' - keep walking, be 2 with you.')
+          for (let i = 30; i >= 1; i--) {
+            this.items.push('2019-'+ (this.month<10?'0'+this.month:this.month)+'-'+(i<10?'0'+i:i))
           }
           this.bottom = this.bottom + 10;
 
@@ -110,14 +127,44 @@ export default {
 <style lang="less">
 @import "../../../assets/css/mixin";
 
-  .option{
-    position: fixed;
+  .btnOption{
+    position: fixed!important;
     bottom: 11px;
     right: 11px;
   }
-  .funnel{
+  .siderBar{
     position: fixed;
-    bottom: 11px;
-    right: 66px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition:transform .2s;
+    transform: translateX(-100%);
+    background:rgba(0,0,0,.5);
+    z-index: 10;
+    .content{
+      .wh(300px,100%);
+      background:#f5f5f5;
+      .item{
+        margin:-1px 0 -1px 0;
+      }
+    }
+    &.on{
+      transform:translateX(0);
+    }
   }
+  .ctitle{
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  .btnOK{
+    margin: 10px auto!important;
+    position: absolute!important;
+    right: 10px;
+    width: 120px;
+  }
+
 </style>

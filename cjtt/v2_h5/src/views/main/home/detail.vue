@@ -10,7 +10,7 @@
             <ul>
                 <li class="item">
                     <span class="table-cell">时间：</span>
-                    <span class="table-cell">2018-01-01</span>
+                    <span class="table-cell">2019-01-01</span>
                 </li>
                 <li class="item">
                     <span class="table-cell">产品：</span>
