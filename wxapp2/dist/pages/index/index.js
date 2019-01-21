@@ -1,7 +1,6 @@
 const app = getApp()
 import { HasOpenId, HasConfig, UpFormid, IntervalChange, recordClick} from '../../lib/idx.js'
 import { rnd } from '../../utils/util.js'
-import { apple } from '../../config/config.js'
 Page({
   data: {
     verflag: false,
@@ -28,6 +27,7 @@ Page({
   },
   // 开始
   tapBegin (event) {
+    debugger
     UpFormid(event.detail.formId).then(()=>{})
     wx.navigateTo({
       url: '../group/group',

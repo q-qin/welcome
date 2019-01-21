@@ -1,8 +1,10 @@
 const app = getApp()
 import { HasOpenId, HasConfig, UpFormid } from '../../lib/idx.js'
 import { rnd } from '../../utils/util.js'
-import { apple } from '../../config/config.js'
-import { mockList } from '../../mock/mock.js'
+// import { apple } from '../../config/config.js'
+// import { mockList } from '../../mock/mock.js'
+const mockList = [];
+const apple={};
 
 Page({
   data: {

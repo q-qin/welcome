@@ -14,6 +14,8 @@ const jsFiles = [`${deployerPath}/*.js`, `${deployerPath}/*.json`] // js文件
 const imgFiles = [`${deployerPath}/*.png`, `${deployerPath}/*.jpg`, `${deployerPath}/*.gif`] // img文件
 const watchPath = [].concat(wxmlFiles, cssFiles, jsFiles, imgFiles).filter(item => !/^!/.test(item)) // 监听文件变化的路径
 
+console.log(cssFiles)
+
 var gulp = require('gulp')
 var less = require('gulp-less')
 var imagemin = require('gulp-imagemin')

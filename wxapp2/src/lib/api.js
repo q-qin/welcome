@@ -4,7 +4,9 @@
  * https apple  域名和小程序ghid，appid
  */
 import { getRequest, postRequest, hallGet } from 'http.js'
-import { https, apple } from '../config/config.js'
+// import { https, apple } from '../config/config.js'
+const apple = {};
+const https = {};
 
 /**
  * @name 获取openId

@@ -1,20 +1,9 @@
-import { recordOpen, changeQuery } from '/lib/idx.js'
-import { apple } from '/config/config.js'
+import { createApp, BaseApp } from './lib/core/create-app'
 
-//app.js
-App({
-  onLaunch (opt) {
-    changeQuery(opt.query).then(res => {
-      console.log(res)
-      recordOpen(res, this)
-    })
-  },
-  globalRecord:{
-    channel: 'self',
-    fromapp: ''
-  },
-  globalData: {
-    userInfo: null
-  },
-  global16: {}
-})
+class MyApp extends BaseApp {
+  globalData = {
+    a: 1
+  }
+}
+ 
+App(createApp(MyApp))

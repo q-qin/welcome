@@ -1,0 +1,120 @@
+<view class="list">
+  <!-- topbar S -->
+  <view class='topbar'>
+    <!-- searchwrap S -->
+    <view class='searchwrap'>
+      <view class='search'>
+        <view class='city'>
+          <p>北京市</p>
+          <i class='cor'></i>
+        </view>
+        <view class='date'>
+          <p>12-10</p>
+          <p>12-11</p>
+          <view class='total'>
+            <view>20晚</view>
+            <i class='cor'></i>
+          </view>
+        </view>
+        <view class='inputWrap'>
+          <i class='sear'></i>
+          <input type='text' placeholder='酒店名称/位置不限'></input>
+          <i class='cor'></i>
+        </view>
+      </view>
+      <view class='map'>
+        <i class="icon_map"></i>
+        <p>地图</p>
+      </view>
+    </view>
+    <!-- searchwrap E -->
+    <!-- filter S -->
+    <view class='filter'>
+      <view class='item'>
+        <sspanan>筛选</sspanan>
+        <i class="cor"></i>
+      </view>
+      <view class='item'>
+        <span>位置区域</span>
+        <i class="cor"></i>
+      </view>
+      <view class='item'>
+        <span>价格星级</span>
+        <i class="cor"></i>
+      </view>
+      <view class='item'>
+        <span>排序</span>
+        <i class="cor"></i>
+      </view>
+    </view>
+    <!-- filter E -->
+  </view>
+  <!-- topbar E -->
+  <!-- banner S -->
+  <view class='banner'></view>
+  <!-- banner E -->
+  <!-- hotellist S -->
+  <ul class='hotellist'>
+    <li wx:for="{{list}}" wx:for-item="item" wx:key="{{item.hotelId}}">
+      <view class='pic'>
+        <image src="{{item.picUrl}}" />
+      </view>
+      <view class='itemContent'>
+        <p class='name'>{{item.hotelName}}</p>
+        <p class="common">
+          <span class="c1">{{item.commentScore}}</span>
+          <span class="c2">分</span>
+          <span class="c3">{{item.commentDes}}-{{item.commentMainTag}}</span>
+          <span class="c4">{{item.totalCommentCount}}条点评</span>
+        </p>
+        <p class="type">{{item.starLevel}}</p>
+        <p class="cir">{{item.businessAreaName}}</p>
+        <p class="tag">
+          <span class="t1">红包</span>
+          <span class="t1">返</span>
+          <span class="t2">促销</span>
+          <span class="t2">新客专享</span>
+        </p>
+        <view class='priceWrap'>
+          <p class="price">
+            <span class="p1">￥</span>
+            <span class="p2">{{item.lowestPrice}}</span>
+            <span class="p3">起</span>
+          </p>
+          <p class="price">低价仅剩1间</p>
+        </view>
+      </view>
+    </li>
+    <!-- <li>
+      <view class='pic'>
+        <image src="https://pavo.elongstatic.com/i/mobile220_220/nw_0004XED5.jpg" />
+      </view>
+      <view class='itemContent'>
+        <p class='name'>北京富力万丽酒店</p>
+        <p class="common">
+          <span class="c1">4.7</span>
+          <span class="c2">分</span>
+          <span class="c3">非常好-位置优越</span>
+          <span class="c4">230条点评</span>
+        </p>
+        <p class="type">高档型</p>
+        <p class="cir">前门/大栅栏</p>
+        <p class="tag">
+          <span class="t1">红包</span>
+          <span class="t1">返</span>
+          <span class="t2">促销</span>
+          <span class="t2">新客专享</span>
+        </p>
+        <view class='priceWrap'>
+          <p class="price">
+            <span class="p1">￥</span>
+            <span class="p2">480</span>
+            <span class="p3">起</span>
+          </p>
+          <p class="price">低价仅剩1间</p>
+        </view>
+      </view>
+    </li> -->
+  </ul>
+  <!-- hotellist E -->
+</view>

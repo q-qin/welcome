@@ -4,10 +4,11 @@
  */
 
 import { Decrypt } from '../lib/http.js'
-import { apple, https } from '../config/config.js'
+// import { apple, https } from '../config/config.js'
 import { getOpenId, getConfig, getFormid } from 'api.js'
 import { rnd } from '../utils/util.js'
-
+const apple = {};
+const https = {};
 /**
  * @name openId获取
  */

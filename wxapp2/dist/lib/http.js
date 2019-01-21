@@ -1,4 +1,5 @@
-import { apple } from '../config/config.js'
+// import { apple } from '../config/config.js'
+const apple = {};
 const CryptoJS = require('../common/aes.js');  //引用AES源码js
 const key = CryptoJS.enc.Utf8.parse('1234567890master');//秘钥
 const iv = CryptoJS.enc.Utf8.parse('1234567890master');//秘钥偏移量
