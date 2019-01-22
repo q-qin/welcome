@@ -4,7 +4,9 @@
   </view>
   <!-- topbar E -->
   <!-- banner S -->
-  <view class='banner'></view>
+  <view class='banner'>
+    <image src="../../images/banner.png" mode="widthFix" />
+  </view>
   <!-- banner E -->
   <!-- hotellist S -->
   <ul class='hotellist'>

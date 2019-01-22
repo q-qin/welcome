@@ -277,4 +277,4 @@ export const CACHE_FNS_MAP = {
   'getAllCookie': 'getAllCookies'
 }
 
-export const ESTORAGE_KEY_PREFIX = 'elong.'
+export const ESTORAGE_KEY_PREFIX = '3keji.'

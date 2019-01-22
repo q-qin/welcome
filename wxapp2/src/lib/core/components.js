@@ -7,9 +7,9 @@ import PageEvents from './PageEvents'
 class Base {
   /**
    * ALL TODO
-   *  - 预加载: 王锐 TODO
-   *  - watch 乐玮 TODO
-   *  - Redux ? 卜祥建 TODO
+   *  - 预加载: 
+   *  - watch 
+   *  - Redux 
    *
    * Done:
    *  1. $setData
