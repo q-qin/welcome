@@ -1,8 +1,6 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/group/group",
-    "pages/final/final",
     "pages/list/list"
   ],
   "window":{

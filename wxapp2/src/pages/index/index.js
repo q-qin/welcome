@@ -1,36 +1,18 @@
 const app = getApp()
 import { HasOpenId, HasConfig, UpFormid, IntervalChange, recordClick} from '../../lib/idx.js'
 import { rnd } from '../../utils/util.js'
+const md = require('./mk.md');
 Page({
   data: {
-    verflag: false,
-    intTimes: null,
-    intConfigs: {
-      moreFun: {},
-      wxad: '',
-      moreFix: {},
-      moreAd: {}
-    }
+    md:md
   },
   onLoad() {
-    HasOpenId().then(res => {})
-    HasConfig(app).then(res => {
-      console.log(app.globalConfig)
-      if (!app.globalConfig.version || app.globalConfig.version != apple.version) {
-        this.data.verflag = true
-      }
-      this.setData({
-        verflag: this.data.verflag
-      })
-      this.data.intTimes = IntervalChange(this, app.globalConfig)
-    })
+    
   },
   // 开始
   tapBegin (event) {
-    debugger
-    UpFormid(event.detail.formId).then(()=>{})
     wx.navigateTo({
-      url: '../group/group',
+      url: '../list/list',
     })
   },
   // 跳转小程序埋点

@@ -1,3 +1,5 @@
 {
-  "disableScroll": true
+  "usingComponents": {
+    "wemark": "../../lib/wemark/wemark"
+  }
 }

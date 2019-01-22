@@ -19,12 +19,12 @@ class List extends BasePage {
   }
   async getListData() {
     const data = await getMainData({
-      pageindex: '0',
-      pagesize: '10',
-      city: '0101'
+      offset: '0',
+      limit: '20',
+      tab: 'all'
     })
     this.setData({
-      list: data.hotelList
+      list: data.data
     })
     console.log(this.data.list)
   }
