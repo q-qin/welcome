@@ -16,4 +16,4 @@
 -------
 如果你觉得这些项目对你有帮助，就打赏作者一杯奶茶吧。
 
-![donate](/juzi/web/donate.png)
+![donate](/donate.png)
