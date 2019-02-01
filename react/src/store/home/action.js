@@ -9,18 +9,3 @@ export const saveFormData = (value, datatype) => {
   }
 }
 
-// 保存图片地址
-export const saveImg = path => {
-  return {
-    type: home.SAVEIMG,
-    path,
-  }
-}
-
-// 保存图片地址
-export const clearData = () => {
-  return {
-    type: home.CLEARDATA,
-  }
-}
-

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { is, fromJS } from 'immutable';
 import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './alert.less';
 
 export default class Alert extends Component{
@@ -11,13 +10,9 @@ export default class Alert extends Component{
     alertTip: PropTypes.string.isRequired,
     alertStatus: PropTypes.bool.isRequired,
   }
-  // css动画组件设置为目标组件
-  FirstChild = props => {
-    const childrenArray = React.Children.toArray(props.children);
-    return childrenArray[0] || null;
-  }
   // 关闭弹框
   confirm = () => {
+    console.log('confirm')
     this.props.closeAlert();
   }
   
@@ -27,11 +22,7 @@ export default class Alert extends Component{
   
   render(){
     return (
-      <ReactCSSTransitionGroup
-        component={this.FirstChild}
-        transitionName="alert"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}>
+      <div>
         {
           this.props.alertStatus&&<div className="alert-con">
             <div className="alert-context">
@@ -40,7 +31,7 @@ export default class Alert extends Component{
             </div>
           </div>
         }
-      </ReactCSSTransitionGroup>
+      </div>
     );
   }
 }

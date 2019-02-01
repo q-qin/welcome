@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { is, fromJS } from 'immutable';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './header.less';
 
 export default class PublicHeader extends Component {
@@ -43,11 +42,7 @@ export default class PublicHeader extends Component {
         {
           this.props.confirm && <NavLink to="/" exact className="header-link header-link-confim">确定</NavLink>
         }
-        <ReactCSSTransitionGroup
-          component={this.FirstChild}
-          transitionName="nav"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={300}>
+        <div>
           {
             this.state.navState && <aside key='nav-slide' className="nav-slide-list" onClick={this.toggleNav}>
               <NavLink to="/" exact className="nav-link icon-jiantou-copy-copy">首页</NavLink>
@@ -55,7 +50,7 @@ export default class PublicHeader extends Component {
               <NavLink to="/about" exact className="nav-link icon-jiantou-copy-copy">关于我们</NavLink>
             </aside>
           }
-        </ReactCSSTransitionGroup>
+        </div>
 
       </header>
     );
