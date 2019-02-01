@@ -1,3 +1,4 @@
+// 这是单元测试用的ts文件
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 describe('AppComponent', () => {
