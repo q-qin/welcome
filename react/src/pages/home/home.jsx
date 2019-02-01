@@ -61,7 +61,7 @@ class Home extends Component {
       formdata.append('file', event.target.files[0]);
       let result = await API.uploadImg({data: formdata});
       this.props.saveImg(envconfig.imgUrl + result.image_path);
-      console.log(result);
+      console.log('err2'+result);
     }catch(err){
       console.error(err);
     }

@@ -17,7 +17,7 @@ const url = require('url');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-const envPublicUrl = process.env.PUBLIC_URL;
+const envPublicUrl = process.env.PUBLIC_URL || process.env.PUBLIC;
 const appName = envPublicUrl&&envPublicUrl.split('/').reverse()[0];
 console.log(appName)
 
