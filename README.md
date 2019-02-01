@@ -6,9 +6,9 @@
 * gulp + angular1.x + IonicUI  移动webapp应用
 ### 3、node
 * nodejs + express + pm2 + db  作为前后端交互媒介
-### 3、wxapp 
+### 3、wxapp-2048
 * 微信小程序版2048游戏
-### 4、wxapp2 
+### 4、wxapp
 * 轻量级小程序框架（超好用）
 ### 5、manager 
 * Vue2.x + ElementUI  作为后台管理系统
